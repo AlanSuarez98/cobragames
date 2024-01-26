@@ -12,7 +12,7 @@
 .containCards {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 350px);
+  grid-template-columns: repeat(4, 300px);
   grid-row: auto;
   justify-content: center;
   align-items: center;
