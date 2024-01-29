@@ -1,8 +1,13 @@
 import "./HeaderHome.css";
 import wave from "../../../../assets/waveSuperior.svg";
 import logo from "../../../../assets/Logo.png";
+import { useNavigate } from "react-router";
 
 const HeaderHome = () => {
+  const navigate = useNavigate();
+  const handleProducts = () => {
+    navigate("/catálogo");
+  };
   return (
     <div>
       <div className="headerHome">
@@ -14,7 +19,9 @@ const HeaderHome = () => {
             ¡Tu tienda online favorita donde puedes encontrar tus juegos
             favoritos!
           </p>
-          <button className="btnCatalogo">VER CATÁLOGO</button>
+          <button className="btnCatalogo" onClick={handleProducts}>
+            VER CATÁLOGO
+          </button>
         </div>
         <div className="logoHeader">
           <img src={logo} alt="" />

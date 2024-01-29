@@ -1,5 +1,24 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Calibri, sans-serif;
+  font-family: "Agency FB";
+}
+/* Estilo del placeholder en todos los navegadores modernos */
+::placeholder {
+  color: white; /* Cambia el color a tu preferencia */
+}
+
+/* Estilo específico para navegadores WebKit (como Chrome y Safari) */
+:-webkit-input-placeholder {
+  color: white;
+}
+
+/* Estilo específico para navegadores Firefox */
+:-moz-placeholder {
+  color: white;
+}
+
+/* Estilo específico para navegadores Internet Explorer 10 y 11 */
+::-ms-input-placeholder {
+  color: white;
 }
