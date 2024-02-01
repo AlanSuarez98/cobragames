@@ -1,10 +1,12 @@
 import Nav from "../nav/Nav";
 import "./Products.css";
+import CardConsole from "./componentsProducts/cardConsole/CardConsole";
 
 const Products = () => {
   return (
     <div className="products">
-      <Nav />
+      <Nav className="nav" />
+      <CardConsole className="CardConsole" />
     </div>
   );
 };
