@@ -1,4 +1,3 @@
-import SwiperPubli from "../swiperPubli/SwiperPubli";
 import "./Home.css";
 import AnswerHome from "./componentsHome/answerHome/AnswerHome";
 import FooterHome from "./componentsHome/footerHome/FooterHome";
@@ -11,7 +10,6 @@ const Home = () => {
     <div className={"home"}>
       <HeaderHome />
       <MainHome />
-      <SwiperPubli />
       <WhySelect />
       <AnswerHome />
       <FooterHome />
