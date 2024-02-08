@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./CardConsole.css";
-import console from "../../../../assets/ps5.png";
 
-const CardConsole = () => {
+const CardConsole = ({ console }) => {
   const [isHovered, setHovered] = useState(false);
 
   return (
