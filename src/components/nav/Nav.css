@@ -25,12 +25,14 @@
 }
 .image img {
   height: 75%;
+  cursor: pointer;
 }
 .image h1 {
   color: white;
   margin: 0 0 0 -15px;
   -webkit-text-stroke: 1px black;
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
 }
 
 .containerSearching {

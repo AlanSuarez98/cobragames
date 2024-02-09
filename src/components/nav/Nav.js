@@ -10,6 +10,9 @@ const Nav = () => {
   const handleHome = () => {
     navigate("/");
   };
+  const handleLogin = () => {
+    navigate("/login");
+  };
   return (
     <div className="nav">
       <div className="navTop">
@@ -27,7 +30,7 @@ const Nav = () => {
           <button>
             Carrito <Icon icon={faCartShopping} css={"iconChair"} />
           </button>
-          <button>Iniciar Sesión</button>
+          <button onClick={handleLogin}>Iniciar Sesión</button>
         </div>
       </div>
       <div className="navBottom">

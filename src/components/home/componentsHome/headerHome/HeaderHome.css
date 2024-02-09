@@ -21,6 +21,17 @@
   justify-content: center;
   align-items: center;
 }
+.logoHeader {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoHeader img {
+  margin: 175px 0 0 0;
+}
+
 .titles h1 {
   font-family: Calibri, sans-serif;
   font-size: 100px;

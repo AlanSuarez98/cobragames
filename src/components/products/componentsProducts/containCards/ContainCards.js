@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const ContainCards = ({ console, imagenProp }) => {
+const ContainCards = ({ consola, imagenProp }) => {
   const [juegos, setJuegos] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const ContainCards = ({ console, imagenProp }) => {
         setJuegos(response.data.juegos);
         console.log("Juegos:", response.data.juegos);
       } catch (error) {
-        console.error("Error al obtener los datos:", error);
+        console.log("Error al obtener los datos:", error);
       }
     }
 
@@ -29,8 +29,9 @@ const ContainCards = ({ console, imagenProp }) => {
 
   return (
     <div className="containCards">
+      <button className="viewAll">Ver todo</button>
       <div className="leftContain">
-        <CardConsole console={console} />
+        <CardConsole consola={consola} />
       </div>
       <div className="rightContain">
         <Swiper

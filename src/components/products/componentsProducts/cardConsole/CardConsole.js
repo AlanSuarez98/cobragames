@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CardConsole.css";
 
-const CardConsole = ({ console }) => {
+const CardConsole = ({ consola }) => {
   const [isHovered, setHovered] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ const CardConsole = ({ console }) => {
       <div className="background-image" />
       <div className="console">
         <img
-          src={console}
+          src={consola}
           alt="Consola PS5"
           className={`console-image ${isHovered ? "animated" : ""}`}
         />
