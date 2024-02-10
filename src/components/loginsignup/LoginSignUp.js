@@ -2,6 +2,7 @@ import "./LoginSignUp.css";
 import Nav from "../nav/Nav";
 import Footer from "../footer/Footer";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const LoginSignUp = () => {
   const [username, setUsername] = useState("");
@@ -9,12 +10,13 @@ const LoginSignUp = () => {
   const [password, setPassword] = useState("");
   const [emailLogin, setEmailLogin] = useState("");
   const [passwordLogin, setPasswordLogin] = useState("");
+  const navigate = useNavigate();
 
   const handleInicioSesion = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://data-cobragames.onrender.com/login",
+        "https://data-userscobragames.onrender.com//login",
         {
           method: "POST",
           headers: {
@@ -25,7 +27,10 @@ const LoginSignUp = () => {
       );
       const data = await response.json();
       alert(data.message);
-      alert("iniciado");
+      if (response.ok) {
+        localStorage.setItem("loggedInUserEmail", emailLogin); // Guardar email en localStorage
+      }
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
     }
@@ -35,7 +40,7 @@ const LoginSignUp = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://data-cobragames.onrender.com/registro",
+        "https://data-userscobragames.onrender.com//registro",
         {
           method: "POST",
           headers: {
@@ -45,7 +50,7 @@ const LoginSignUp = () => {
         }
       );
       const data = await response.json();
-      alert(data.message);
+      console.log(data);
     } catch (error) {
       console.error("Error al registrar usuario:", error);
     }

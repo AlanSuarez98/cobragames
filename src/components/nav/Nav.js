@@ -3,15 +3,28 @@ import logo from "../../assets/Logo.png";
 import Icon from "../icon/Icon";
 import { faCartShopping, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
 
 const Nav = () => {
   const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Verificar si el usuario está logueado al cargar la página
+    const loggedInUserEmail = localStorage.getItem("loggedInUserEmail");
+    if (loggedInUserEmail) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const handleHome = () => {
     navigate("/");
   };
   const handleLogin = () => {
     navigate("/login");
+  };
+  const handleMyAccount = () => {
+    // Implementar la lógica para redirigir a la página de "Mi cuenta"
   };
   return (
     <div className="nav">
@@ -30,7 +43,11 @@ const Nav = () => {
           <button>
             Carrito <Icon icon={faCartShopping} css={"iconChair"} />
           </button>
-          <button onClick={handleLogin}>Iniciar Sesión</button>
+          {isLoggedIn ? (
+            <button onClick={handleMyAccount}>Mi Cuenta</button>
+          ) : (
+            <button onClick={handleLogin}>Iniciar Sesión</button>
+          )}
         </div>
       </div>
       <div className="navBottom">
