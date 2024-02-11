@@ -1,7 +1,13 @@
+import Nav from "../nav/Nav";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return (
+    <div>
+      <Nav />
+      DASHBOARD
+    </div>
+  );
 };
 
 export default Dashboard;

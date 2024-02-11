@@ -24,7 +24,7 @@ const Nav = () => {
     navigate("/login");
   };
   const handleMyAccount = () => {
-    // Implementar la lógica para redirigir a la página de "Mi cuenta"
+    navigate("/dashboard");
   };
   return (
     <div className="nav">
