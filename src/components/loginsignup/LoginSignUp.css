@@ -1,10 +1,14 @@
-.loginSignUp {
+.boxLogin {
   width: 100%;
-  min-height: 90vh;
+  min-height: 135vh;
   background-color: rgb(26, 26, 26);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.loginSignUp {
+  position: relative;
+  top: -175px;
 }
 .wrapper {
   --input-focus: #d4a108;

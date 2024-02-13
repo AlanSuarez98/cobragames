@@ -58,74 +58,106 @@ const LoginSignUp = () => {
   return (
     <>
       <Nav />
-      <div className="loginSignUp">
-        <div className="wrapper">
-          <div className="card-switch">
-            <label className="switch">
-              <input className="toggle" type="checkbox" />
-              <span className="slider"></span>
-              <span className="card-side"></span>
-              <div className="flip-card__inner">
-                <div className="flip-card__front">
-                  <div className="title">Iniciar Sesión</div>
-                  <form
-                    onSubmit={handleInicioSesion}
-                    className="flip-card__form"
-                  >
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      name="email"
-                      className="flip-card__input"
-                      value={emailLogin}
-                      onChange={(e) => setEmailLogin(e.target.value)}
-                    />
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      name="password"
-                      className="flip-card__input"
-                      value={passwordLogin}
-                      onChange={(e) => setPasswordLogin(e.target.value)}
-                    />
-                    <button type="submit" className="flip-card__btn">
-                      Iniciar Sesión
-                    </button>
-                  </form>
+      <div className="boxLogin">
+        <div className="loginSignUp">
+          <div className="wrapper">
+            <div className="card-switch">
+              <label className="switch">
+                <input className="toggle" type="checkbox" />
+                <span className="slider"></span>
+                <span className="card-side"></span>
+                <div className="flip-card__inner">
+                  <div className="flip-card__front">
+                    <div className="title">Iniciar Sesión</div>
+                    <form
+                      onSubmit={handleInicioSesion}
+                      className="flip-card__form"
+                    >
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                        className="flip-card__input"
+                        value={emailLogin}
+                        onChange={(e) => setEmailLogin(e.target.value)}
+                      />
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        className="flip-card__input"
+                        value={passwordLogin}
+                        onChange={(e) => setPasswordLogin(e.target.value)}
+                      />
+                      <button type="submit" className="flip-card__btn">
+                        Iniciar Sesión
+                      </button>
+                    </form>
+                  </div>
+                  <div className="flip-card__back">
+                    <div className="title">Registrarse</div>
+                    <form onSubmit={handleRegistro} className="flip-card__form">
+                      <input
+                        type="name"
+                        placeholder="Name"
+                        className="flip-card__input"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                      />
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                        className="flip-card__input"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                      <input
+                        type="text"
+                        placeholder="Genero"
+                        name="genre"
+                        className="flip-card__input"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Fecha de nacimiento"
+                        name="nacimiento"
+                        className="flip-card__input"
+                      />
+                      <input
+                        type="text"
+                        placeholder="País"
+                        name="pais"
+                        className="flip-card__input"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Provincia"
+                        name="provincia"
+                        className="flip-card__input"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Ciudad"
+                        name="ciudad"
+                        className="flip-card__input"
+                      />
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        className="flip-card__input"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                      <button type="submit" className="flip-card__btn">
+                        Registrarse
+                      </button>
+                    </form>
+                  </div>
                 </div>
-                <div className="flip-card__back">
-                  <div className="title">Registrarse</div>
-                  <form onSubmit={handleRegistro} className="flip-card__form">
-                    <input
-                      type="name"
-                      placeholder="Name"
-                      className="flip-card__input"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      name="email"
-                      className="flip-card__input"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      name="password"
-                      className="flip-card__input"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button type="submit" className="flip-card__btn">
-                      Registrarse
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </label>
+              </label>
+            </div>
           </div>
         </div>
       </div>

@@ -59,15 +59,6 @@ const Nav = () => {
           <span>{">  "}</span> Juegos PS4
         </button>
         <button>
-          <span>{">  "}</span> Juegos PS3
-        </button>
-        <button>
-          <span>{">  "}</span> XBOX
-        </button>
-        <button>
-          <span>{">  "}</span> Juegos PC
-        </button>
-        <button>
           <span>{">  "}</span> Tarjetas
         </button>
         <button>

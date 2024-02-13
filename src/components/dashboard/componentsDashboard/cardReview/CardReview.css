@@ -1,0 +1,44 @@
+.cardReview {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid white;
+}
+.cardReview img {
+  height: 90%;
+  margin: 0 0 0 15px;
+}
+.textReview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.boxOption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px 0 0;
+}
+.boxOption select {
+  padding: 5px 15px;
+  background-color: rgb(50, 50, 50);
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+}
+.boxOption button {
+  margin: 10px 0 0 0;
+  padding: 5px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.boxOption button:hover {
+  background-color: #d4a108;
+  color: white;
+  transition: 0.2s ease-in-out all;
+}
