@@ -15,9 +15,17 @@ const Products = () => {
         <img src={anuncio} alt="" />
       </div>
       <div className="containGames">
-        <ContainCards consola={consolePS5} imagenProp="imagen_ps5" />
+        <ContainCards
+          plataforma={"PS5"}
+          consola={consolePS5}
+          imagenProp="imagen_ps5"
+        />
         <ContainTarget />
-        <ContainCards consola={consolePS4} imagenProp="imagen_ps4" />
+        <ContainCards
+          plataforma={"PS4"}
+          consola={consolePS4}
+          imagenProp="imagen_ps4"
+        />
       </div>
       <Footer />
     </div>

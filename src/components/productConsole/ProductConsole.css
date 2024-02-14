@@ -1,0 +1,55 @@
+.product-console {
+  background-color: rgb(26, 26, 26);
+  width: 100%;
+  min-height: 90vh;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.product-console h1 {
+  color: white;
+  width: 90%;
+  text-align: start;
+  font-size: 50px;
+}
+.boxGames {
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(4, 350px);
+  grid-gap: 20px;
+  grid-auto-rows: auto;
+  align-items: center;
+  justify-content: center;
+}
+.boxPagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.boxPagination button {
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 1px solid #d4a108;
+  color: #d4a108;
+  margin: 0 20px;
+  box-shadow: 0px 0px 8px rgb(26, 26, 26, 0.8);
+  cursor: pointer;
+}
+.boxPagination button:hover {
+  background-color: #d4a108;
+  border: 1px solid white;
+  color: white;
+  box-shadow: none;
+  transition: 0.2s ease-in-out all;
+}
+
+.boxPagination p {
+  color: #d4a108;
+  padding: 4px 5px;
+  cursor: default;
+  border: 1px solid #d4a108;
+}

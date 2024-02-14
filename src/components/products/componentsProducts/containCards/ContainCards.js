@@ -7,9 +7,11 @@ import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
 
-const ContainCards = ({ consola, imagenProp }) => {
+const ContainCards = ({ plataforma, consola, imagenProp }) => {
   const [juegos, setJuegos] = useState([]);
+  const [platform] = useState(plataforma);
 
   useEffect(() => {
     async function obtenerDatos() {
@@ -26,10 +28,13 @@ const ContainCards = ({ consola, imagenProp }) => {
 
     obtenerDatos();
   }, []);
-
   return (
     <div className="containCards">
-      <button className="viewAll">Ver todo</button>
+      <button className="viewAll">
+        <Link to={`/consola/${platform}`} >
+          Ver todo
+        </Link>
+      </button>
       <div className="leftContain">
         <CardConsole consola={consola} />
       </div>
