@@ -1,30 +1,25 @@
-import { useParams } from "react-router";
-import Footer from "../footer/Footer";
-import Nav from "../nav/Nav";
-import "./GameDetail.css";
 import { useEffect, useState } from "react";
+import "./CardDetail.css";
+import { useParams } from "react-router";
+import Nav from "../nav/Nav";
+import Footer from "../footer/Footer";
 import axios from "axios";
 import Loader from "../loader/Loader";
 
-const GameDetail = () => {
+const CardDetail = () => {
   const { nombre } = useParams();
-  const [game, setGame] = useState(null);
-  const [imagenProp, setImagenProp] = useState(null);
+  const [tarjeta, setTarjeta] = useState(null);
 
   useEffect(() => {
     async function obtenerDatos() {
       try {
         const response = await axios.get(
-          "https://data-cobragames.onrender.com/data"
+          "https://data-cobragames.onrender.com/tarjetas"
         );
-        const juego = response.data.juegos.find(
-          (juego) => juego.nombre === nombre
+        const tarjeta = response.data.tarjetas.find(
+          (tarjeta) => tarjeta.nombre === nombre
         );
-        setGame(juego);
-        const storedImagenProp = localStorage.getItem("imagenProp");
-        if (storedImagenProp) {
-          setImagenProp(storedImagenProp);
-        }
+        setTarjeta(tarjeta);
       } catch (error) {
         console.log("Error al obtener los datos:", error);
       }
@@ -33,20 +28,20 @@ const GameDetail = () => {
     obtenerDatos();
   }, [nombre]);
 
-  if (!game) {
+  if (!tarjeta) {
     return <Loader />;
   }
   return (
     <>
       <Nav />
-      <div className="gameDetail">
-        <div className="infoGame">
-          <div className="imgGame">
-            <img src={imagenProp} alt="" />
+      <div className="cardDetail">
+        <div className="infoCard">
+          <div className="imgCard">
+            <img src={tarjeta.imagen} alt="" />
           </div>
-          <div className="dataGame">
-            <h1>{game.nombre}</h1>
-            <p>{game.descripcion}</p>
+          <div className="dataCard">
+            <h1>{tarjeta.nombre}</h1>
+            <p>{tarjeta.descripcion}</p>
             <button class="cta">
               <span class="hover-underline-animation"> Comprar </span>
               <svg
@@ -66,16 +61,10 @@ const GameDetail = () => {
             </button>
           </div>
         </div>
-        <div className="boxTrailer">
-          <div
-            className="videoGame"
-            dangerouslySetInnerHTML={{ __html: game.video }}
-          />
-        </div>
       </div>
       <Footer />
     </>
   );
 };
 
-export default GameDetail;
+export default CardDetail;

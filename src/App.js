@@ -9,6 +9,7 @@ import ProductTarget from "./components/productTarget/ProductTarget";
 import GameDetail from "./components/gameDetail/GameDetail";
 import ProtectedLogin from "./ProtectedLogin";
 import ProtectedDashboard from "./ProtectedDashboard";
+import CardDetail from "./components/cardDetail/CardDetail";
 
 function App() {
   const router = createBrowserRouter([
@@ -47,6 +48,10 @@ function App() {
     {
       path: "/game/:nombre",
       element: <GameDetail />,
+    },
+    {
+      path: "/tarjetas/:nombre",
+      element: <CardDetail />,
     },
   ]);
   return <RouterProvider router={router} />;

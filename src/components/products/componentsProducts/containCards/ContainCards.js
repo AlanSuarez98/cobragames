@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import { useImageContext } from "../../../contexts/imageContext";
+import Loader from "../../../loader/Loader";
 
 const ContainCards = ({ plataforma, consola, imagenProp }) => {
   const [juegos, setJuegos] = useState([]);
@@ -30,6 +31,9 @@ const ContainCards = ({ plataforma, consola, imagenProp }) => {
 
     obtenerDatos();
   }, []);
+  if (!juegos) {
+    return <Loader />;
+  }
   return (
     <div className="containCards">
       <button className="viewAll">

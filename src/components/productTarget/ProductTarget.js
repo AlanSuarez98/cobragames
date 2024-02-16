@@ -4,6 +4,8 @@ import Nav from "../nav/Nav";
 import CardGames from "../products/componentsProducts/cardGames/CardGames";
 import "./ProductTarget.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Loader from "../loader/Loader";
 
 const ProductTarget = () => {
   const [tarjetas, setTarjetas] = useState([]);
@@ -24,7 +26,9 @@ const ProductTarget = () => {
 
     obtenerDatos();
   }, []);
-
+  if (!tarjetas) {
+    return <Loader />;
+  }
   // Calcular el índice del último juego en la página actual
   const indexOfLastGame = currentPage * gamesPerPage;
   // Calcular el índice del primer juego en la página actual
@@ -49,11 +53,13 @@ const ProductTarget = () => {
         <h1>Tarjetas</h1>
         <div className="boxGames">
           {tarjetasToShow.map((tarjeta, index) => (
-            <CardGames
-              key={index}
-              imagen={tarjeta.imagen}
-              nombre={tarjeta.nombre}
-            />
+            <Link to={`/tarjetas/${encodeURIComponent(tarjeta.nombre)}`}>
+              <CardGames
+                key={index}
+                imagen={tarjeta.imagen}
+                nombre={tarjeta.nombre}
+              />
+            </Link>
           ))}
         </div>
         <div className="boxPagination">

@@ -6,6 +6,8 @@ import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
+import Loader from "../../../loader/Loader";
 
 const ContainTarget = () => {
   const [tarjetas, setTarjetas] = useState([]);
@@ -25,10 +27,14 @@ const ContainTarget = () => {
 
     obtenerDatos();
   }, []);
-
+  if (!tarjetas) {
+    return <Loader />;
+  }
   return (
     <div className="containTarget">
-      <button className="viewAllTarget">Ver todo</button>
+      <button className="viewAllTarget">
+        <Link to={`/tarjetas`}>Ver todo</Link>
+      </button>
       <Swiper
         slidesPerView={5}
         spaceBetween={10}
@@ -41,11 +47,13 @@ const ContainTarget = () => {
       >
         {tarjetas.slice(0, 10).map((tarjeta, index) => (
           <SwiperSlide>
-            <CardGames
-              key={index}
-              imagen={tarjeta.imagen}
-              nombre={tarjeta.nombre}
-            />
+            <Link to={`/tarjetas/${encodeURIComponent(tarjeta.nombre)}`}>
+              <CardGames
+                key={index}
+                imagen={tarjeta.imagen}
+                nombre={tarjeta.nombre}
+              />
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

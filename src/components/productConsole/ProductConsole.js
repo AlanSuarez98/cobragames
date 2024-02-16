@@ -5,12 +5,16 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CardGames from "../products/componentsProducts/cardGames/CardGames";
+import { Link } from "react-router-dom";
+import { useImageContext } from "../contexts/imageContext";
+import Loader from "../loader/Loader";
 
 const ProductConsole = () => {
   const { platform } = useParams();
   const [juegos, setJuegos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const gamesPerPage = 20;
+  const { setImagenProp } = useImageContext();
 
   useEffect(() => {
     async function obtenerDatos() {
@@ -26,6 +30,10 @@ const ProductConsole = () => {
 
     obtenerDatos();
   }, []);
+
+  if (!juegos) {
+    return <Loader />;
+  }
 
   const imagenProp = `imagen_${platform.toLowerCase()}`;
 
@@ -53,11 +61,19 @@ const ProductConsole = () => {
         <h1>{platform}</h1>
         <div className="boxGames">
           {juegosToShow.map((juego, index) => (
-            <CardGames
-              key={index}
-              imagen={juego[imagenProp]}
-              nombre={juego.nombre}
-            />
+            <Link
+              to={`/game/${encodeURIComponent(juego.nombre)}`}
+              onClick={() => {
+                setImagenProp(juego[imagenProp]);
+                localStorage.setItem("imagenProp", juego[imagenProp]);
+              }}
+            >
+              <CardGames
+                key={index}
+                imagen={juego[imagenProp]}
+                nombre={juego.nombre}
+              />
+            </Link>
           ))}
         </div>
         <div className="boxPagination">
