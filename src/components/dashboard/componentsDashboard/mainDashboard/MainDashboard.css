@@ -44,6 +44,10 @@
   background-color: #d4a108;
   transition: 0.2s ease-in-out all;
 }
+.menuLateral button.active {
+  background-color: #d4a108;
+  color: white;
+}
 .menuArticle {
   height: 100%;
   width: 80%;

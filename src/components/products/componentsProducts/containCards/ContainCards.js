@@ -8,10 +8,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
+import { useImageContext } from "../../../contexts/imageContext";
 
 const ContainCards = ({ plataforma, consola, imagenProp }) => {
   const [juegos, setJuegos] = useState([]);
   const [platform] = useState(plataforma);
+  const { setImagenProp } = useImageContext();
 
   useEffect(() => {
     async function obtenerDatos() {
@@ -31,9 +33,7 @@ const ContainCards = ({ plataforma, consola, imagenProp }) => {
   return (
     <div className="containCards">
       <button className="viewAll">
-        <Link to={`/consola/${platform}`} >
-          Ver todo
-        </Link>
+        <Link to={`/consola/${platform}`}>Ver todo</Link>
       </button>
       <div className="leftContain">
         <CardConsole consola={consola} />
@@ -51,11 +51,19 @@ const ContainCards = ({ plataforma, consola, imagenProp }) => {
         >
           {juegos.slice(0, 10).map((juego, index) => (
             <SwiperSlide>
-              <CardGames
-                key={index}
-                imagen={juego[imagenProp]}
-                nombre={juego.nombre}
-              />
+              <Link
+                to={`/game/${encodeURIComponent(juego.nombre)}`}
+                onClick={() => {
+                  setImagenProp(juego[imagenProp]);
+                  localStorage.setItem("imagenProp", juego[imagenProp]);
+                }}
+              >
+                <CardGames
+                  key={index}
+                  imagen={juego[imagenProp]}
+                  nombre={juego.nombre}
+                />
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

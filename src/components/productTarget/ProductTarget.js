@@ -1,14 +1,12 @@
-import Nav from "../nav/Nav";
-import Footer from "../footer/Footer";
-import "./ProductConsole.css";
-import { useParams } from "react-router";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import Footer from "../footer/Footer";
+import Nav from "../nav/Nav";
 import CardGames from "../products/componentsProducts/cardGames/CardGames";
+import "./ProductTarget.css";
+import { useEffect, useState } from "react";
 
-const ProductConsole = () => {
-  const { platform } = useParams();
-  const [juegos, setJuegos] = useState([]);
+const ProductTarget = () => {
+  const [tarjetas, setTarjetas] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const gamesPerPage = 20;
 
@@ -16,9 +14,9 @@ const ProductConsole = () => {
     async function obtenerDatos() {
       try {
         const response = await axios.get(
-          "https://data-cobragames.onrender.com/data"
+          "https://data-cobragames.onrender.com/tarjetas"
         );
-        setJuegos(response.data.juegos);
+        setTarjetas(response.data.tarjetas);
       } catch (error) {
         console.log("Error al obtener los datos:", error);
       }
@@ -27,14 +25,12 @@ const ProductConsole = () => {
     obtenerDatos();
   }, []);
 
-  const imagenProp = `imagen_${platform.toLowerCase()}`;
-
   // Calcular el índice del último juego en la página actual
   const indexOfLastGame = currentPage * gamesPerPage;
   // Calcular el índice del primer juego en la página actual
   const indexOfFirstGame = indexOfLastGame - gamesPerPage;
   // Obtener los juegos para la página actual
-  const juegosToShow = juegos.slice(indexOfFirstGame, indexOfLastGame);
+  const tarjetasToShow = tarjetas.slice(indexOfFirstGame, indexOfLastGame);
 
   // Cambiar a la siguiente página
   const nextPage = () => {
@@ -50,13 +46,13 @@ const ProductConsole = () => {
     <>
       <Nav />
       <div className="product-console">
-        <h1>{platform}</h1>
+        <h1>Tarjetas</h1>
         <div className="boxGames">
-          {juegosToShow.map((juego, index) => (
+          {tarjetasToShow.map((tarjeta, index) => (
             <CardGames
               key={index}
-              imagen={juego[imagenProp]}
-              nombre={juego.nombre}
+              imagen={tarjeta.imagen}
+              nombre={tarjeta.nombre}
             />
           ))}
         </div>
@@ -73,4 +69,4 @@ const ProductConsole = () => {
   );
 };
 
-export default ProductConsole;
+export default ProductTarget;

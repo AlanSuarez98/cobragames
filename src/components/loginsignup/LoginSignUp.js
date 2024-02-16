@@ -15,16 +15,13 @@ const LoginSignUp = () => {
   const handleInicioSesion = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://data-userscobragames.onrender.com//login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ emailLogin, passwordLogin }),
-        }
-      );
+      const response = await fetch("http://127.0.0.1:8000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ emailLogin, passwordLogin }),
+      });
       const data = await response.json();
       alert(data.message);
       if (response.ok) {
@@ -39,16 +36,22 @@ const LoginSignUp = () => {
   const handleRegistro = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://data-userscobragames.onrender.com//registro",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username, email, password }),
-        }
-      );
+      const response = await fetch("http://127.0.0.1:8000/register/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          email: email,
+          password: password,
+          genero: "", // Agrega el valor para el campo genero si es requerido
+          fecha_nacimiento: "", // Agrega el valor para el campo fecha_nacimiento si es requerido
+          pais: "", // Agrega el valor para el campo pais si es requerido
+          provincia: "", // Agrega el valor para el campo provincia si es requerido
+          ciudad: "", // Agrega el valor para el campo ciudad si es requerido
+        }),
+      });
       const data = await response.json();
       console.log(data);
     } catch (error) {
@@ -111,36 +114,6 @@ const LoginSignUp = () => {
                         className="flip-card__input"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                      />
-                      <input
-                        type="text"
-                        placeholder="Genero"
-                        name="genre"
-                        className="flip-card__input"
-                      />
-                      <input
-                        type="text"
-                        placeholder="Fecha de nacimiento"
-                        name="nacimiento"
-                        className="flip-card__input"
-                      />
-                      <input
-                        type="text"
-                        placeholder="País"
-                        name="pais"
-                        className="flip-card__input"
-                      />
-                      <input
-                        type="text"
-                        placeholder="Provincia"
-                        name="provincia"
-                        className="flip-card__input"
-                      />
-                      <input
-                        type="text"
-                        placeholder="Ciudad"
-                        name="ciudad"
-                        className="flip-card__input"
                       />
                       <input
                         type="password"

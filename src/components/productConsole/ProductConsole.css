@@ -13,12 +13,14 @@
   width: 90%;
   text-align: start;
   font-size: 50px;
+  padding: 50px 0;
 }
 .boxGames {
+  padding: 0px 0px 50px 0;
   width: 100%;
   height: fit-content;
   display: grid;
-  grid-template-columns: repeat(4, 350px);
+  grid-template-columns: repeat(4, 250px);
   grid-gap: 20px;
   grid-auto-rows: auto;
   align-items: center;
