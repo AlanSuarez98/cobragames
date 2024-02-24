@@ -10,6 +10,7 @@ import GameDetail from "./components/gameDetail/GameDetail";
 import ProtectedLogin from "./ProtectedLogin";
 import ProtectedDashboard from "./ProtectedDashboard";
 import CardDetail from "./components/cardDetail/CardDetail";
+import Contact from "./components/contact/Contact";
 
 function App() {
   const router = createBrowserRouter([
@@ -52,6 +53,10 @@ function App() {
     {
       path: "/tarjetas/:nombre",
       element: <CardDetail />,
+    },
+    {
+      path: "contacto",
+      element: <Contact />,
     },
   ]);
   return <RouterProvider router={router} />;
