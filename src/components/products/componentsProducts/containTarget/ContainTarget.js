@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ContainTarget.css";
-import CardGames from "../cardGames/CardGames";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import Loader from "../../../loader/Loader";
+import CardTarget from "../cardTarget/CardTarget";
 
 const ContainTarget = () => {
   const [tarjetas, setTarjetas] = useState([]);
@@ -47,8 +47,8 @@ const ContainTarget = () => {
       >
         {tarjetas.slice(0, 10).map((tarjeta, index) => (
           <SwiperSlide>
-            <Link to={`/tarjetas/${encodeURIComponent(tarjeta.nombre)}`}>
-              <CardGames
+            <Link to={`/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}>
+              <CardTarget
                 key={index}
                 imagen={tarjeta.imagen}
                 nombre={tarjeta.nombre}

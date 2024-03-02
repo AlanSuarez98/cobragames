@@ -6,7 +6,7 @@ const CardConsole = ({ consola }) => {
 
   return (
     <div
-      className={`card ${isHovered ? "hovered" : ""}`}
+      className={`cardConsole ${isHovered ? "hovered" : ""}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

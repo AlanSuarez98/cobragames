@@ -38,6 +38,9 @@ const Nav = () => {
   const handleShop = () => {
     navigate("/catálogo");
   };
+  const handleContact = () => {
+    navigate("/contacto");
+  };
   return (
     <div className="nav">
       <div className="navTop">
@@ -73,7 +76,7 @@ const Nav = () => {
         <button onClick={handleTarget}>
           <span>{">  "}</span> Tarjetas
         </button>
-        <button>
+        <button onClick={handleContact}>
           <span>{">  "}</span> Contacto
         </button>
       </div>

@@ -15,3 +15,28 @@
   align-items: center;
   justify-content: center;
 }
+details {
+  margin: 5px 0;
+  width: 600px;
+}
+details summary {
+  background-color: #d4a108;
+  padding: 10px 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
+details p {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(26, 26, 26);
+  padding: 10px 15px;
+}
+details p span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+details p span:hover {
+  color: #d4a108;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease-in-out all;
+}

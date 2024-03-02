@@ -3,14 +3,15 @@ import Nav from "../nav/Nav";
 import Footer from "../footer/Footer";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import Message from "../message/Message";
 
 const LoginSignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [emailLogin, setEmailLogin] = useState("");
   const [passwordLogin, setPasswordLogin] = useState("");
   const navigate = useNavigate();
+  const [registroExitoso, setRegistroExitoso] = useState(false);
 
   const handleInicioSesion = async (e) => {
     e.preventDefault();
@@ -25,10 +26,8 @@ const LoginSignUp = () => {
           body: JSON.stringify({ emailLogin, passwordLogin }),
         }
       );
-      const data = await response.json();
-      alert(data.message);
       if (response.ok) {
-        localStorage.setItem("loggedInUserEmail", emailLogin); // Guardar email en localStorage
+        localStorage.setItem("loggedInUserEmail", emailLogin);
       }
       navigate("/dashboard");
     } catch (error) {
@@ -39,34 +38,38 @@ const LoginSignUp = () => {
   const handleRegistro = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://data-userscobragames.onrender.com/registro",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: username,
-            email: email,
-            password: password,
-            genero: "", // Agrega el valor para el campo genero si es requerido
-            fecha_nacimiento: "", // Agrega el valor para el campo fecha_nacimiento si es requerido
-            pais: "", // Agrega el valor para el campo pais si es requerido
-            provincia: "", // Agrega el valor para el campo provincia si es requerido
-            ciudad: "", // Agrega el valor para el campo ciudad si es requerido
-          }),
-        }
-      );
-      const data = await response.json();
-      console.log(data);
+      await fetch("https://data-userscobragames.onrender.com/registro", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          email: email,
+        }),
+      });
     } catch (error) {
-      console.error("Error al registrar usuario:", error);
+      console.error("Error al enviar correo electrónico:", error);
     }
   };
+
+  const handleMessage = () => {
+    setRegistroExitoso(true);
+  };
+  const handleCloseMessage = () => {
+    setRegistroExitoso(false); // Cambia el estado para ocultar el mensaje
+  };
+
+  const message =
+    "¡Registro exitoso! En breve nos contactaremos al email ingresado";
   return (
     <>
       <Nav />
+      <div className="messageBox">
+        {registroExitoso && (
+          <Message message={message} onClose={handleCloseMessage} />
+        )}
+      </div>
       <div className="boxLogin">
         <div className="loginSignUp">
           <div className="wrapper">
@@ -104,7 +107,7 @@ const LoginSignUp = () => {
                     </form>
                   </div>
                   <div className="flip-card__back">
-                    <div className="title">Registrarse</div>
+                    <div className="title">Creación de Cuenta</div>
                     <form onSubmit={handleRegistro} className="flip-card__form">
                       <input
                         type="name"
@@ -121,15 +124,11 @@ const LoginSignUp = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                       />
-                      <input
-                        type="password"
-                        placeholder="Password"
-                        name="password"
-                        className="flip-card__input"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                      <button type="submit" className="flip-card__btn">
+                      <button
+                        type="submit"
+                        onClick={handleMessage}
+                        className="flip-card__btn"
+                      >
                         Registrarse
                       </button>
                     </form>

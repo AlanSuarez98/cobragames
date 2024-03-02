@@ -1,11 +1,10 @@
 import axios from "axios";
 import Footer from "../footer/Footer";
 import Nav from "../nav/Nav";
-import CardGames from "../products/componentsProducts/cardGames/CardGames";
 import "./ProductTarget.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Loader from "../loader/Loader";
+import CardTarget from "../products/componentsProducts/cardTarget/CardTarget";
 
 const ProductTarget = () => {
   const [tarjetas, setTarjetas] = useState([]);
@@ -53,13 +52,11 @@ const ProductTarget = () => {
         <h1>Tarjetas</h1>
         <div className="boxGames">
           {tarjetasToShow.map((tarjeta, index) => (
-            <Link to={`/tarjetas/${encodeURIComponent(tarjeta.nombre)}`}>
-              <CardGames
-                key={index}
-                imagen={tarjeta.imagen}
-                nombre={tarjeta.nombre}
-              />
-            </Link>
+            <CardTarget
+              key={index}
+              imagen={tarjeta.imagen}
+              nombre={tarjeta.nombre}
+            />
           ))}
         </div>
         <div className="boxPagination">

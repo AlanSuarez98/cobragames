@@ -56,7 +56,7 @@ const ContainCards = ({ plataforma, consola, imagenProp }) => {
           {juegos.slice(0, 10).map((juego, index) => (
             <SwiperSlide>
               <Link
-                to={`/game/${encodeURIComponent(juego.nombre)}`}
+                to={`/juego/${encodeURIComponent(juego.nombre)}`}
                 onClick={() => {
                   setImagenProp(juego[imagenProp]);
                   localStorage.setItem("imagenProp", juego[imagenProp]);
@@ -66,6 +66,7 @@ const ContainCards = ({ plataforma, consola, imagenProp }) => {
                   key={index}
                   imagen={juego[imagenProp]}
                   nombre={juego.nombre}
+                  platform={juego.platform}
                 />
               </Link>
             </SwiperSlide>

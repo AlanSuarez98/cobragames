@@ -47,15 +47,15 @@ function App() {
       element: <ProductTarget />,
     },
     {
-      path: "/game/:nombre",
+      path: "/juego/:nombre",
       element: <GameDetail />,
     },
     {
-      path: "/tarjetas/:nombre",
+      path: "/tarjeta/:nombre",
       element: <CardDetail />,
     },
     {
-      path: "contacto",
+      path: "/contacto",
       element: <Contact />,
     },
   ]);

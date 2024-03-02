@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import "./CardGames.css";
+import "./CardTarget.css";
 import { useImageContext } from "../../../contexts/imageContext";
 
-const CardGames = ({ imagen, nombre }) => {
+const CardTarget = ({ imagen, nombre }) => {
   const { setImagenProp } = useImageContext();
   return (
     <div class="card">
@@ -14,14 +14,14 @@ const CardGames = ({ imagen, nombre }) => {
       </div>
       <div class="card-footer">
         <Link
-          to={`/juego/${encodeURIComponent(nombre)}`}
+          to={`/tarjeta/${encodeURIComponent(nombre)}`}
           onClick={() => {
             setImagenProp(imagen);
             localStorage.setItem("imagenProp", imagen);
           }}
         >
           <button className="shopNow">
-            <span className="hover-underline-animation"> Comprar</span>
+            <span className="hover-underline-animation"> Comprar </span>
             <svg
               id="arrow-horizontal"
               xmlns="http://www.w3.org/2000/svg"
@@ -43,4 +43,4 @@ const CardGames = ({ imagen, nombre }) => {
   );
 };
 
-export default CardGames;
+export default CardTarget;
