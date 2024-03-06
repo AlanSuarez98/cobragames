@@ -28,7 +28,7 @@ const ProductConsole = () => {
     obtenerDatos();
   }, []);
 
-  if (!juegos) {
+  if (!juegos.length) {
     return <Loader />;
   }
 

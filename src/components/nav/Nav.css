@@ -99,3 +99,11 @@
   font-weight: bold;
   font-family: Calibri;
 }
+.navBottom button:hover {
+  background-color: #a57d05;
+}
+.navBottom button:hover > span {
+  display: inline-block;
+  transform: rotate(-180deg);
+  transition: 0.35s ease-in-out all;
+}

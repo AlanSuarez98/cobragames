@@ -29,7 +29,7 @@ const SwiperPubli = () => {
           }}
           navigation={false}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
+          className="swiperPubli"
         >
           <SwiperSlide>
             <img

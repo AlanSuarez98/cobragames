@@ -1,4 +1,3 @@
-import CardConsole from "../cardConsole/CardConsole";
 import CardGames from "../cardGames/CardGames";
 import "./ContainCards.css";
 import React, { useEffect, useState } from "react";
@@ -11,7 +10,7 @@ import { Link } from "react-router-dom";
 import { useImageContext } from "../../../contexts/imageContext";
 import Loader from "../../../loader/Loader";
 
-const ContainCards = ({ plataforma, consola, imagenProp }) => {
+const ContainCards = ({ plataforma, imagenProp }) => {
   const [juegos, setJuegos] = useState([]);
   const [platform] = useState(plataforma);
   const { setImagenProp } = useImageContext();
@@ -31,48 +30,46 @@ const ContainCards = ({ plataforma, consola, imagenProp }) => {
 
     obtenerDatos();
   }, []);
-  if (!juegos) {
+
+  if (!juegos.length) {
     return <Loader />;
   }
+
   return (
     <div className="containCards">
-      <button className="viewAll">
-        <Link to={`/consola/${platform}`}>Ver todo</Link>
-      </button>
-      <div className="leftContain">
-        <CardConsole consola={consola} />
-      </div>
-      <div className="rightContain">
-        <Swiper
-          slidesPerView={4}
-          spaceBetween={20}
-          freeMode={true}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[FreeMode, Pagination]}
-          className="mySwiper"
-        >
-          {juegos.slice(0, 10).map((juego, index) => (
-            <SwiperSlide>
-              <Link
-                to={`/juego/${encodeURIComponent(juego.nombre)}`}
-                onClick={() => {
-                  setImagenProp(juego[imagenProp]);
-                  localStorage.setItem("imagenProp", juego[imagenProp]);
-                }}
-              >
-                <CardGames
-                  key={index}
-                  imagen={juego[imagenProp]}
-                  nombre={juego.nombre}
-                  platform={juego.platform}
-                />
-              </Link>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      <Link to={`/consola/${platform}`}>
+        <button className="viewAll">Ver todo</button>
+      </Link>
+      <h1 className="namePlatform">{plataforma}</h1>
+      <Swiper
+        slidesPerView={4}
+        spaceBetween={20}
+        freeMode={true}
+        pagination={{
+          clickable: false,
+        }}
+        modules={[FreeMode, Pagination]}
+        id="containGames"
+      >
+        {juegos.slice(0, 10).map((juego, index) => (
+          <SwiperSlide className="swiperProducts">
+            <Link
+              to={`/juego/${encodeURIComponent(juego.nombre)}`}
+              onClick={() => {
+                setImagenProp(juego[imagenProp]);
+                localStorage.setItem("imagenProp", juego[imagenProp]);
+              }}
+            >
+              <CardGames
+                key={index}
+                imagen={juego[imagenProp]}
+                nombre={juego.nombre}
+                platform={juego.platform}
+              />
+            </Link>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };

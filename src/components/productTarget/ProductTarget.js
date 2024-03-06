@@ -25,9 +25,10 @@ const ProductTarget = () => {
 
     obtenerDatos();
   }, []);
-  if (!tarjetas) {
+  if (!tarjetas.length) {
     return <Loader />;
   }
+
   // Calcular el índice del último juego en la página actual
   const indexOfLastGame = currentPage * gamesPerPage;
   // Calcular el índice del primer juego en la página actual

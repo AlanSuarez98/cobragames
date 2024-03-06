@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ContainTarget.css";
-import { FreeMode, Pagination } from "swiper/modules";
+import { FreeMode, Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -27,14 +27,16 @@ const ContainTarget = () => {
 
     obtenerDatos();
   }, []);
-  if (!tarjetas) {
+  if (!tarjetas.length) {
     return <Loader />;
   }
+
   return (
     <div className="containTarget">
-      <button className="viewAllTarget">
-        <Link to={`/tarjetas`}>Ver todo</Link>
-      </button>
+      <Link to={`/tarjetas`}>
+        <button className="viewAllTarget">Ver todo</button>
+      </Link>
+      <h1 className="nameCard">Tarjetas</h1>
       <Swiper
         slidesPerView={5}
         spaceBetween={10}
@@ -42,8 +44,12 @@ const ContainTarget = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[FreeMode, Pagination]}
-        className="mySwiperTarget"
+        autoplay={{
+          delay: 1200,
+          disableOnInteraction: false,
+        }}
+        modules={[FreeMode, Pagination, Autoplay]}
+        id="mySwiperTarget"
       >
         {tarjetas.slice(0, 10).map((tarjeta, index) => (
           <SwiperSlide>
