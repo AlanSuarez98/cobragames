@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
-import Loader from "../../../loader/Loader";
+import LoaderGames from "../../../loader/LoaderGames";
 import CardTarget from "../cardTarget/CardTarget";
 
 const ContainTarget = () => {
@@ -28,7 +28,7 @@ const ContainTarget = () => {
     obtenerDatos();
   }, []);
   if (!tarjetas.length) {
-    return <Loader />;
+    return <LoaderGames />;
   }
 
   return (
@@ -38,8 +38,7 @@ const ContainTarget = () => {
       </Link>
       <h1 className="nameCard">Tarjetas</h1>
       <Swiper
-        slidesPerView={5}
-        spaceBetween={10}
+        spaceBetween={20}
         freeMode={true}
         pagination={{
           clickable: true,
@@ -50,9 +49,15 @@ const ContainTarget = () => {
         }}
         modules={[FreeMode, Pagination, Autoplay]}
         id="mySwiperTarget"
+        breakpoints={{
+          // Definir la cantidad de slides por vista en diferentes tamaños de pantalla
+          425: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 4 },
+        }}
       >
         {tarjetas.slice(0, 10).map((tarjeta, index) => (
-          <SwiperSlide>
+          <SwiperSlide className="sliderTarget">
             <Link to={`/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}>
               <CardTarget
                 key={index}

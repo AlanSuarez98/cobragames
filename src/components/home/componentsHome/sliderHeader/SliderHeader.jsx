@@ -31,13 +31,13 @@ export default function SliderHeader() {
         modules={[Autoplay, Navigation]}
         id="sliderHeader"
       >
-        <SwiperSlide>
+        <SwiperSlide className="sliderHead">
           <img src={img1} alt="" />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="sliderHead">
           <img src={img2} alt="" />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="sliderHead">
           <img src={img3} alt="" />
         </SwiperSlide>
       </Swiper>

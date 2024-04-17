@@ -1,21 +1,56 @@
-.cardMainHome {
-  width: 240px;
-  height: 320px;
+@media (min-width: 320px) and (max-width: 425px) {
+  .cardMainHome {
+    width: 200px !important;
+    height: 300px !important;
+    margin: 0 28px 0 0;
+  }
+
+  #swiperCardHome {
+    width: 200px !important;
+    height: 320px !important;
+  }
+
+  .sliderCardHome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    width: 240px !important;
+    height: 320px !important;
+  }
+  .imgCardHome {
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 
-.swiperCardHome {
-  width: 240px;
-  height: 320px;
-}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .cardMainHome {
+    width: 240px !important;
+    height: 320px !important;
+  }
 
-.swiper-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 18px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
-  width: 240px;
-  height: 320px;
+  #swiperCardHome {
+    width: 240px !important;
+    height: 320px !important;
+  }
+
+  .sliderCardHome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    width: 240px !important;
+    height: 320px !important;
+  }
+  .imgCardHome {
+    width: 100% !important;
+    height: 100% !important;
+  }
 }

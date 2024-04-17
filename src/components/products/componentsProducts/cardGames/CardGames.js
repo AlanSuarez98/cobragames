@@ -5,14 +5,14 @@ import { useImageContext } from "../../../contexts/imageContext";
 const CardGames = ({ imagen, nombre }) => {
   const { setImagenProp } = useImageContext();
   return (
-    <div class="card">
-      <div class="card-img">
+    <div className="card">
+      <div className="card-img">
         <img src={imagen} alt={nombre} />
       </div>
-      <div class="card-info">
-        <p class="text-title">{nombre}</p>
+      <div className="card-info">
+        <p className="text-title">{nombre}</p>
       </div>
-      <div class="card-footer">
+      <div className="card-footer">
         <Link
           to={`/juego/${encodeURIComponent(nombre)}`}
           onClick={() => {

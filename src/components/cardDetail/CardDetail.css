@@ -1,108 +1,226 @@
-.cardDetail {
-  background-color: rgb(26, 26, 26);
-  width: 100%;
-  min-height: 90vh;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  padding: 50px 0;
-}
-.infoCard {
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.imgCard {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.imgCard img {
-  width: 60%;
-}
-.dataCard {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-}
-.dataCard h1 {
-  font-size: 50px;
-  margin: -25px 0 50px 0;
-}
-.dataCard p {
-  font-size: 20px;
-  width: 550px;
-  text-align: start;
-  margin: 25px 0 50px 0;
-}
-.cta {
-  border: none;
-  background: none;
-  background-color: white;
-  padding: 10px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-}
-.cta span {
-  padding-bottom: 7px;
-  letter-spacing: 4px;
-  font-size: 14px;
-  padding-right: 15px;
-  text-transform: uppercase;
+@media (min-width: 320px) and (max-width: 425px) {
+  .cardDetail {
+    background-color: rgb(26, 26, 26);
+    width: 100%;
+    min-height: 90vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 50px 0;
+  }
+  .infoCard {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .imgCard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .imgCard img {
+    width: 60%;
+    border: 2px solid white;
+    box-shadow: 0px 0px 25px rgba(225, 225, 225, 0.8);
+  }
+  .dataCard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .dataCard h1 {
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    margin: 25px 0 0 0;
+  }
+  .dataCard p {
+    font-size: 20px;
+    width: 90%;
+    text-align: start;
+    margin: 25px 0 50px 0;
+  }
+  .cta {
+    border: none;
+    background: none;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .cta span {
+    padding-bottom: 7px;
+    letter-spacing: 4px;
+    font-size: 14px;
+    padding-right: 15px;
+    text-transform: uppercase;
+  }
+
+  .cta svg {
+    transform: translateX(-8px);
+    transition: all 0.3s ease;
+  }
+
+  .cta:hover svg {
+    transform: translateX(0);
+  }
+
+  .cta:active svg {
+    transform: scale(0.9);
+  }
+
+  .hover-underline-animation {
+    position: relative;
+    color: black;
+    padding-bottom: 20px;
+  }
+
+  .hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .cta:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  .boxTrailer {
+    width: 100%;
+    height: fit-content;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
-.cta svg {
-  transform: translateX(-8px);
-  transition: all 0.3s ease;
-}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .cardDetail {
+    background-color: rgb(26, 26, 26);
+    width: 100%;
+    min-height: 90vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 50px 0;
+  }
+  .infoCard {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .imgCard {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .imgCard img {
+    width: 60%;
+  }
+  .dataCard {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+  .dataCard h1 {
+    font-size: 50px;
+    margin: -25px 0 50px 0;
+  }
+  .dataCard p {
+    font-size: 20px;
+    width: 550px;
+    text-align: start;
+    margin: 25px 0 50px 0;
+  }
+  .cta {
+    border: none;
+    background: none;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .cta span {
+    padding-bottom: 7px;
+    letter-spacing: 4px;
+    font-size: 14px;
+    padding-right: 15px;
+    text-transform: uppercase;
+  }
 
-.cta:hover svg {
-  transform: translateX(0);
-}
+  .cta svg {
+    transform: translateX(-8px);
+    transition: all 0.3s ease;
+  }
 
-.cta:active svg {
-  transform: scale(0.9);
-}
+  .cta:hover svg {
+    transform: translateX(0);
+  }
 
-.hover-underline-animation {
-  position: relative;
-  color: black;
-  padding-bottom: 20px;
-}
+  .cta:active svg {
+    transform: scale(0.9);
+  }
 
-.hover-underline-animation:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000000;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
+  .hover-underline-animation {
+    position: relative;
+    color: black;
+    padding-bottom: 20px;
+  }
 
-.cta:hover .hover-underline-animation:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-.boxTrailer {
-  width: 100%;
-  height: fit-content;
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .cta:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  .boxTrailer {
+    width: 100%;
+    height: fit-content;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

@@ -10,6 +10,11 @@ const CardDetail = () => {
   const { nombre } = useParams();
   const [tarjeta, setTarjeta] = useState(null);
 
+  const openWhatsapp = () => {
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=543416697243&text&type=phone_number&app_absent=0`;
+    window.open(whatsappUrl, "_blank");
+  };
+
   useEffect(() => {
     async function obtenerDatos() {
       try {
@@ -42,7 +47,7 @@ const CardDetail = () => {
           <div className="dataCard">
             <h1>{tarjeta.nombre}</h1>
             <p>{tarjeta.descripcion}</p>
-            <button class="cta">
+            <button class="cta" onClick={openWhatsapp}>
               <span class="hover-underline-animation"> Comprar </span>
               <svg
                 id="arrow-horizontal"

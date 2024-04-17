@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import { useImageContext } from "../../../contexts/imageContext";
-import Loader from "../../../loader/Loader";
+import LoaderGames from "../../../loader/LoaderGames";
 
 const ContainCards = ({ plataforma, imagenProp }) => {
   const [juegos, setJuegos] = useState([]);
@@ -32,7 +32,7 @@ const ContainCards = ({ plataforma, imagenProp }) => {
   }, []);
 
   if (!juegos.length) {
-    return <Loader />;
+    return <LoaderGames />;
   }
 
   return (
@@ -42,7 +42,6 @@ const ContainCards = ({ plataforma, imagenProp }) => {
       </Link>
       <h1 className="namePlatform">{plataforma}</h1>
       <Swiper
-        slidesPerView={4}
         spaceBetween={20}
         freeMode={true}
         pagination={{
@@ -50,6 +49,12 @@ const ContainCards = ({ plataforma, imagenProp }) => {
         }}
         modules={[FreeMode, Pagination]}
         id="containGames"
+        breakpoints={{
+          // Definir la cantidad de slides por vista en diferentes tamaños de pantalla
+          425: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 4 },
+        }}
       >
         {juegos.slice(0, 10).map((juego, index) => (
           <SwiperSlide className="swiperProducts">

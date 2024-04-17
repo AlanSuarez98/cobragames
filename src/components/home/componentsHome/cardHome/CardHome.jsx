@@ -8,7 +8,7 @@ import "swiper/css/effect-cards";
 import { EffectCards } from "swiper/modules";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Loader from "../../../loader/Loader";
+import LoaderGames from "../../../loader/LoaderGames";
 
 export default function CardHome({ imagenProp }) {
   const [juegos, setJuegos] = useState([]);
@@ -29,7 +29,7 @@ export default function CardHome({ imagenProp }) {
     obtenerDatos();
   }, []);
   if (!juegos.length) {
-    return <Loader />;
+    return <LoaderGames />;
   }
 
   return (
@@ -38,11 +38,11 @@ export default function CardHome({ imagenProp }) {
         effect={"cards"}
         grabCursor={true}
         modules={[EffectCards]}
-        className="swiperCardHome"
+        id="swiperCardHome"
       >
         {juegos.slice(0, 10).map((juego, index) => (
-          <SwiperSlide key={index}>
-            <img src={juego[imagenProp]} alt="" />
+          <SwiperSlide className="sliderCardHome" key={index}>
+            <img src={juego[imagenProp]} alt="" className="imgCardHome" />
           </SwiperSlide>
         ))}
       </Swiper>

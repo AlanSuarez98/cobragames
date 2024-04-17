@@ -1,81 +1,183 @@
-.footerHome {
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 320px) and (max-width: 425px) {
+  .footerHome {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footerSuperior {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .footerLeft {
+    width: 100%;
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 0 50px;
+  }
+  .footerLeft h1 {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 50px 0 0 !important;
+  }
+  .footerLeft p {
+    width: 300px !important;
+    text-align: center !important;
+    margin: 0 50px 0 0 !important;
+  }
+  .footerLeft p span {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .footerRigth {
+    width: 100%;
+    border: none !important;
+    border-top: 2px solid white !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 15px 0 0 0;
+    padding: 15px 0 0 0;
+  }
+  .footerRigth h1 {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .footerRigth p {
+    width: 300px !important;
+    text-align: center;
+  }
+  .emailFooter {
+    margin: 15px 0 0 0;
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .emailFooter input {
+    text-align: center;
+    padding: 10px 20px !important;
+    border: 2px solid #efb810;
+    color: #efb810;
+    background-color: transparent;
+    border-radius: 10px;
+  }
+  .emailFooter button {
+    padding: 10px 30px;
+    margin: 0 0 0 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #efb810;
+    color: rgb(26, 26, 26);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+  }
+  .emailFooter button:hover {
+    background-color: transparent;
+    color: #efb810;
+    border: 2px solid #efb810;
+    transition: 0.2s all ease-in-out;
+  }
+  .footerInferior {
+    width: 100%;
+    height: 50px;
+    background-color: #efb810;
+    margin: 40px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(26, 26, 26);
+    font-weight: bold;
+  }
 }
-.footerSuperior {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.footerLeft {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  margin: 0 0 0 50px;
-}
-.footerLeft p {
-  width: 450px;
-}
-.footerLeft p span {
-  font-size: 20px;
-  margin: 0 5px;
-  cursor: pointer;
-}
-.footerRigth {
-  width: 50%;
-  border-left: 2px solid white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.footerRigth p {
-  width: 450px;
-  text-align: center;
-}
-.emailFooter {
-  margin: 15px 0 0 0;
-}
-.emailFooter input {
-  text-align: center;
-  padding: 10px 60px;
-  border: 2px solid #efb810;
-  color: #efb810;
-  background-color: transparent;
-  border-radius: 10px;
-}
-.emailFooter button {
-  padding: 10px 30px;
-  margin: 0 0 0 10px;
-  border-radius: 10px;
-  border: none;
-  background-color: #efb810;
-  color: rgb(26, 26, 26);
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s all ease-in-out;
-}
-.emailFooter button:hover {
-  background-color: transparent;
-  color: #efb810;
-  border: 2px solid #efb810;
-  transition: 0.2s all ease-in-out;
-}
-.footerInferior {
-  width: 100%;
-  height: 50px;
-  background-color: #efb810;
-  margin: 40px 0 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(26, 26, 26);
-  font-weight: bold;
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .footerHome {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footerSuperior {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footerLeft {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin: 0 0 0 50px;
+  }
+  .footerLeft p {
+    width: 450px;
+  }
+  .footerLeft p span {
+    font-size: 20px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  .footerRigth {
+    width: 50%;
+    border-left: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .footerRigth p {
+    width: 450px;
+    text-align: center;
+  }
+  .emailFooter {
+    margin: 15px 0 0 0;
+  }
+  .emailFooter input {
+    text-align: center;
+    padding: 10px 60px;
+    border: 2px solid #efb810;
+    color: #efb810;
+    background-color: transparent;
+    border-radius: 10px;
+  }
+  .emailFooter button {
+    padding: 10px 30px;
+    margin: 0 0 0 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #efb810;
+    color: rgb(26, 26, 26);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+  }
+  .emailFooter button:hover {
+    background-color: transparent;
+    color: #efb810;
+    border: 2px solid #efb810;
+    transition: 0.2s all ease-in-out;
+  }
+  .footerInferior {
+    width: 100%;
+    height: 50px;
+    background-color: #efb810;
+    margin: 40px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(26, 26, 26);
+    font-weight: bold;
+  }
 }

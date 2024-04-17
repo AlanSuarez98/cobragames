@@ -12,6 +12,10 @@ const ProductTarget = () => {
   const gamesPerPage = 20;
 
   useEffect(() => {
+    document.title = `Cobra Games | Tarjetas`;
+  }, []);
+
+  useEffect(() => {
     async function obtenerDatos() {
       try {
         const response = await axios.get(
@@ -25,6 +29,7 @@ const ProductTarget = () => {
 
     obtenerDatos();
   }, []);
+
   if (!tarjetas.length) {
     return <Loader />;
   }
@@ -46,9 +51,14 @@ const ProductTarget = () => {
     setCurrentPage(currentPage - 1);
   };
 
+  // Verificar si estás en la primera página
+  const isFirstPage = currentPage === 1;
+  // Verificar si estás en la última página
+  const isLastPage = indexOfLastGame > tarjetas.length;
+
   return (
     <>
-      <Nav />
+      <Nav showTitle={true} />
       <div className="product-console">
         <h1>Tarjetas</h1>
         <div className="boxGames">
@@ -61,11 +71,13 @@ const ProductTarget = () => {
           ))}
         </div>
         <div className="boxPagination">
-          <button onClick={prevPage} disabled={currentPage === 1}>
+          <button onClick={prevPage} disabled={isFirstPage}>
             Anterior
           </button>
           <p>{currentPage}</p>
-          <button onClick={nextPage}>Siguiente</button>
+          <button onClick={nextPage} disabled={isLastPage}>
+            Siguiente
+          </button>
         </div>
       </div>
       <Footer />

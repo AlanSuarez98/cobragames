@@ -1,8 +1,21 @@
-.headerHome {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 320px) and (max-width: 425px) {
+  .headerHome {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .headerHome {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

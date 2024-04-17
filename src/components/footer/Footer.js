@@ -2,9 +2,19 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import Icon from "../icon/Icon";
 import "./Footer.css";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-
 const Footer = () => {
   const año = new Date().getFullYear();
+  const openInstagram = () => {
+    const instagramUrl = `https://www.instagram.com/cobragames.ok/`;
+    window.open(instagramUrl, "_blank");
+  };
+
+  const sendEmail = () => {
+    const emailAddress = "cobragames.ok@gmail.com";
+    const mailtoUrl = `mailto:${emailAddress}`;
+    window.location.href = mailtoUrl;
+  };
+
   return (
     <div className="footer">
       <div className="footerSuperior">
@@ -17,11 +27,11 @@ const Footer = () => {
           </p>
           <p>
             Escribinos en Instagram o por E-mail{" "}
-            <span>
+            <span onClick={openInstagram}>
               {" "}
               <Icon icon={faInstagram} css={"iconFooter"} />
             </span>
-            <span>
+            <span onClick={sendEmail}>
               {" "}
               <Icon icon={faEnvelope} css={"iconFooter"} />
             </span>
@@ -40,11 +50,6 @@ const Footer = () => {
         </div>
       </div>
       <div className="footerInf">
-        <div className="boxButtons">
-          <h4>INICIO</h4>
-          <h4>PREGUNTAS FRECUENTES</h4>
-          <h4>TÉRMINOS Y CONDICIONES</h4>
-        </div>
         <div className="dataReserved">
           <p>
             Todos los derechos reservados. <span>{año}</span> ©

@@ -6,7 +6,7 @@ import Footer from "../footer/Footer";
 const Dashboard = () => {
   return (
     <div>
-      <Nav />
+      <Nav showTitle={true} />
       <MainDashboard />
       <Footer />
     </div>

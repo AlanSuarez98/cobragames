@@ -11,6 +11,11 @@ const GameDetail = () => {
   const [game, setGame] = useState(null);
   const [imagenProp, setImagenProp] = useState(null);
 
+  const openWhatsapp = () => {
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=543416697243&text&type=phone_number&app_absent=0`;
+    window.open(whatsappUrl, "_blank");
+  };
+
   useEffect(() => {
     async function obtenerDatos() {
       try {
@@ -38,7 +43,7 @@ const GameDetail = () => {
   }
   return (
     <>
-      <Nav />
+      <Nav showTitle={true} />
       <div className="gameDetail">
         <div className="infoGame">
           <div className="imgGame">
@@ -47,7 +52,7 @@ const GameDetail = () => {
           <div className="dataGame">
             <h1>{game.nombre}</h1>
             <p>{game.descripcion}</p>
-            <button class="cta">
+            <button class="cta" onClick={openWhatsapp}>
               <span class="hover-underline-animation"> Comprar </span>
               <svg
                 id="arrow-horizontal"

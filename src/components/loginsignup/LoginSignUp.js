@@ -1,9 +1,10 @@
 import "./LoginSignUp.css";
 import Nav from "../nav/Nav";
 import Footer from "../footer/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Message from "../message/Message";
+import PopUp from "../popup/PopUp";
 
 const LoginSignUp = () => {
   const [username, setUsername] = useState("");
@@ -12,6 +13,15 @@ const LoginSignUp = () => {
   const [passwordLogin, setPasswordLogin] = useState("");
   const navigate = useNavigate();
   const [registroExitoso, setRegistroExitoso] = useState(false);
+  const [showPopUp, setShowPopUp] = useState(true);
+
+  useEffect(() => {
+    document.title = "Cobra Games | Login";
+  }, []);
+
+  const handleClosePopUp = () => {
+    setShowPopUp(false); // Cambia el estado para ocultar el PopUp
+  };
 
   const handleInicioSesion = async (e) => {
     e.preventDefault();
@@ -64,7 +74,18 @@ const LoginSignUp = () => {
     "¡Registro exitoso! En breve nos contactaremos al email ingresado";
   return (
     <>
-      <Nav />
+      {showPopUp && (
+        <PopUp
+          onClose={handleClosePopUp}
+          text1={
+            "Antes de comenzar, queremos informarte que para registrarte o crear una cuenta, necesitamos que ingreses los datos solicitados. Una vez hecho esto, dentro de un plazo de 24 a 72 horas, te enviaremos los detalles de tu cuenta para que puedas comenzar a disfrutar de nuestros servicios."
+          }
+          text2={
+            "Si pasado este tiempo no recibes ninguna novedad, por favor contáctate con nuestro equipo de soporte"
+          }
+        />
+      )}
+      <Nav showTitle={true} />
       <div className="messageBox">
         {registroExitoso && (
           <Message message={message} onClose={handleCloseMessage} />

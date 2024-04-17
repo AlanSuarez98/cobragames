@@ -20,7 +20,7 @@ const NavHome = () => {
     navigate("/contacto");
   };
   return (
-    <div className="navBottom">
+    <div className="navHome">
       <button onClick={handleShop}>Tienda</button>
       <button onClick={handleGamesPS5}>
         <span>{">  "}</span> Juegos PS5
