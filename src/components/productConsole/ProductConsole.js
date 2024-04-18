@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CardGames from "../products/componentsProducts/cardGames/CardGames";
 import LoaderGames from "../loader/LoaderGames";
+import { Link } from "react-router-dom";
+import { useImageContext } from "../contexts/imageContext";
 
 const ProductConsole = () => {
   const { platform } = useParams();
@@ -14,6 +16,7 @@ const ProductConsole = () => {
   const gamesPerPage = 20;
   const [searchResults, setSearchResults] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const { setImagenProp } = useImageContext();
 
   useEffect(() => {
     async function obtenerDatos() {
@@ -69,11 +72,19 @@ const ProductConsole = () => {
         <div className="boxGames">
           {juegosToShow.length > 0 ? (
             juegosToShow.map((juego, index) => (
-              <CardGames
-                key={index}
-                imagen={juego[imagenProp]}
-                nombre={juego.nombre}
-              />
+              <Link
+                to={`/juego/${encodeURIComponent(juego.nombre)}`}
+                onClick={() => {
+                  setImagenProp(juego[imagenProp]);
+                  localStorage.setItem("imagenProp", juego[imagenProp]);
+                }}
+              >
+                <CardGames
+                  key={index}
+                  imagen={juego[imagenProp]}
+                  nombre={juego.nombre}
+                />
+              </Link>
             ))
           ) : (
             <p>No se encontraron juegos con el nombre "{searchTerm}"</p>

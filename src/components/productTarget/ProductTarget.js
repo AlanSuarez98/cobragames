@@ -5,11 +5,14 @@ import "./ProductTarget.css";
 import { useEffect, useState } from "react";
 import Loader from "../loader/Loader";
 import CardTarget from "../products/componentsProducts/cardTarget/CardTarget";
+import { useImageContext } from "../contexts/imageContext";
+import { Link } from "react-router-dom";
 
 const ProductTarget = () => {
   const [tarjetas, setTarjetas] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const gamesPerPage = 20;
+  const { setImagenProp } = useImageContext();
 
   useEffect(() => {
     document.title = `Cobra Games | Tarjetas`;
@@ -55,7 +58,6 @@ const ProductTarget = () => {
   const isFirstPage = currentPage === 1;
   // Verificar si estás en la última página
   const isLastPage = indexOfLastGame > tarjetas.length;
-
   return (
     <>
       <Nav showTitle={true} />
@@ -63,11 +65,19 @@ const ProductTarget = () => {
         <h1>Tarjetas</h1>
         <div className="boxGames">
           {tarjetasToShow.map((tarjeta, index) => (
-            <CardTarget
-              key={index}
-              imagen={tarjeta.imagen}
-              nombre={tarjeta.nombre}
-            />
+            <Link
+              to={`/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}
+              onClick={() => {
+                setImagenProp(tarjeta.imagen);
+                localStorage.setItem("imagenProp", tarjeta.imagen);
+              }}
+            >
+              <CardTarget
+                key={index}
+                imagen={tarjeta.imagen}
+                nombre={tarjeta.nombre}
+              />
+            </Link>
           ))}
         </div>
         <div className="boxPagination">
