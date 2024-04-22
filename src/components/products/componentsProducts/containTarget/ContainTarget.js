@@ -43,16 +43,12 @@ const ContainTarget = () => {
         pagination={{
           clickable: true,
         }}
-        autoplay={{
-          delay: 1200,
-          disableOnInteraction: false,
-        }}
         modules={[FreeMode, Pagination, Autoplay]}
         id="mySwiperTarget"
         breakpoints={{
           // Definir la cantidad de slides por vista en diferentes tamaños de pantalla
           425: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         }}
       >

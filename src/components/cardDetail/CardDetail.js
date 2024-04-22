@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import "./CardDetail.css";
 import { useParams } from "react-router";
 import Nav from "../nav/Nav";
-import Footer from "../footer/Footer";
 import axios from "axios";
 import Loader from "../loader/Loader";
+import FooterHome from "../home/componentsHome/footerHome/FooterHome";
 
 const CardDetail = () => {
   const { nombre } = useParams();
@@ -29,7 +29,7 @@ const CardDetail = () => {
         console.log("Error al obtener los datos:", error);
       }
     }
-
+    document.title = `Cobra Games | ${nombre}`;
     obtenerDatos();
   }, [nombre]);
 
@@ -67,7 +67,7 @@ const CardDetail = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <FooterHome />
     </>
   );
 };

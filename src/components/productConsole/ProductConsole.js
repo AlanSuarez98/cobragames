@@ -1,5 +1,4 @@
 import Nav from "../nav/Nav";
-import Footer from "../footer/Footer";
 import "./ProductConsole.css";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
@@ -8,6 +7,7 @@ import CardGames from "../products/componentsProducts/cardGames/CardGames";
 import LoaderGames from "../loader/LoaderGames";
 import { Link } from "react-router-dom";
 import { useImageContext } from "../contexts/imageContext";
+import FooterHome from "../home/componentsHome/footerHome/FooterHome";
 
 const ProductConsole = () => {
   const { platform } = useParams();
@@ -104,7 +104,7 @@ const ProductConsole = () => {
           )}
         </div>
       </div>
-      <Footer />
+      <FooterHome />
     </>
   );
 };

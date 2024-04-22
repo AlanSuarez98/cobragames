@@ -45,14 +45,14 @@ const ContainCards = ({ plataforma, imagenProp }) => {
         spaceBetween={20}
         freeMode={true}
         pagination={{
-          clickable: false,
+          clickable: true,
         }}
         modules={[FreeMode, Pagination]}
         id="containGames"
         breakpoints={{
           // Definir la cantidad de slides por vista en diferentes tamaños de pantalla
           425: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         }}
       >

@@ -1,8 +1,8 @@
+import FooterHome from "../home/componentsHome/footerHome/FooterHome";
 import Nav from "../nav/Nav";
 import "./Products.css";
 import ContainCards from "./componentsProducts/containCards/ContainCards";
 import ContainTarget from "./componentsProducts/containTarget/ContainTarget";
-import Footer from "../footer/Footer";
 import { useEffect } from "react";
 
 const Products = () => {
@@ -19,7 +19,7 @@ const Products = () => {
         <ContainTarget />
         <ContainCards plataforma={"PS4"} imagenProp="imagen_ps4" />
       </div>
-      <Footer />
+      <FooterHome />
     </div>
   );
 };

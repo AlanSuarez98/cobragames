@@ -1,10 +1,10 @@
 import { faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import Footer from "../footer/Footer";
 import Nav from "../nav/Nav";
 import "./Contact.css";
 import CardContact from "./componentContact/cardContact/CardContact";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
+import FooterHome from "../home/componentsHome/footerHome/FooterHome";
 
 const Contact = () => {
   const openWhatsapp = () => {
@@ -58,7 +58,7 @@ const Contact = () => {
           </div>
         </>
       </div>
-      <Footer />
+      <FooterHome />
     </>
   );
 };

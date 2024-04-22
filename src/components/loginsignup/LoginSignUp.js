@@ -1,10 +1,10 @@
 import "./LoginSignUp.css";
 import Nav from "../nav/Nav";
-import Footer from "../footer/Footer";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Message from "../message/Message";
 import PopUp from "../popup/PopUp";
+import FooterHome from "../home/componentsHome/footerHome/FooterHome";
 
 const LoginSignUp = () => {
   const [username, setUsername] = useState("");
@@ -160,7 +160,7 @@ const LoginSignUp = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <FooterHome />
     </>
   );
 };

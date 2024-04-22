@@ -37,8 +37,12 @@ const Nav = ({ onSearch, showSearchInput, showTitle }) => {
   const handleHome = () => {
     navigate("/");
   };
-  const handleLogin = () => {
+  /*const handleLogin = () => {
     navigate("/login");
+  };*/
+  const openInstagram = () => {
+    const instagramUrl = `https://www.instagram.com/cobragames.ok/`;
+    window.open(instagramUrl, "_blank");
   };
   const handleMyAccount = () => {
     navigate("/dashboard");
@@ -90,7 +94,7 @@ const Nav = ({ onSearch, showSearchInput, showTitle }) => {
           {isLoggedIn ? (
             <button onClick={handleMyAccount}>Mi Cuenta</button>
           ) : (
-            <button onClick={handleLogin}>login in</button>
+            <button onClick={openInstagram}>Novedades</button>
           )}
         </div>
       </div>

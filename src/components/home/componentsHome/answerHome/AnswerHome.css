@@ -1,4 +1,4 @@
-@media (min-width: 320px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .answerHome {
     width: 100%;
     height: fit-content;
@@ -44,7 +44,142 @@
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1440px) {
+@media (min-width: 425.1px) and (max-width: 768px) {
+  .answerHome {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    padding: 50px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .containerAnswer {
+    margin: 50px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  details {
+    margin: 5px 0;
+    width: 80%;
+  }
+  details summary {
+    background-color: #d4a108;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  details p {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgb(26, 26, 26);
+    padding: 10px 15px;
+    font-size: 1.2rem;
+  }
+  details p span {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  details p span:hover {
+    color: #d4a108;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s ease-in-out all;
+  }
+}
+
+@media (min-width: 768.1px) and (max-width: 1024px) {
+  .answerHome {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    padding: 50px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .containerAnswer {
+    margin: 50px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  details {
+    margin: 5px 0;
+    width: 600px;
+  }
+  details summary {
+    background-color: #d4a108;
+    padding: 10px 15px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  details p {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgb(26, 26, 26);
+    padding: 10px 15px;
+  }
+  details p span {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  details p span:hover {
+    color: #d4a108;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s ease-in-out all;
+  }
+}
+
+@media (min-width: 1024.1px) and (max-width: 1440px) {
+  .answerHome {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    padding: 50px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .containerAnswer {
+    margin: 50px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  details {
+    margin: 5px 0;
+    width: 600px;
+  }
+  details summary {
+    background-color: #d4a108;
+    padding: 10px 15px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  details p {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgb(26, 26, 26);
+    padding: 10px 15px;
+  }
+  details p span {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  details p span:hover {
+    color: #d4a108;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s ease-in-out all;
+  }
+}
+@media (min-width: 1440.1px) {
   .answerHome {
     width: 100%;
     height: fit-content;

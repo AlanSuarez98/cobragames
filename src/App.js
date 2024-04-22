@@ -2,15 +2,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Home from "./components/home/Home";
 import Products from "./components/products/Products";
-import LoginSignUp from "./components/loginsignup/LoginSignUp";
-import Dashboard from "./components/dashboard/Dashboard";
+/*import LoginSignUp from "./components/loginsignup/LoginSignUp";
+import Dashboard from "./components/dashboard/Dashboard";*/
 import ProductConsole from "./components/productConsole/ProductConsole";
 import ProductTarget from "./components/productTarget/ProductTarget";
 import GameDetail from "./components/gameDetail/GameDetail";
-import ProtectedLogin from "./ProtectedLogin";
-import ProtectedDashboard from "./ProtectedDashboard";
+/*import ProtectedLogin from "./ProtectedLogin";
+import ProtectedDashboard from "./ProtectedDashboard";*/
 import CardDetail from "./components/cardDetail/CardDetail";
 import Contact from "./components/contact/Contact";
+import NotFound from "./components/notFound/NotFound";
 
 function App() {
   const router = createBrowserRouter([
@@ -23,6 +24,10 @@ function App() {
       element: <Products />,
     },
     {
+      path: "/*",
+      element: <NotFound />,
+    },
+    /*{
       path: "/login",
       element: (
         <ProtectedLogin>
@@ -37,7 +42,7 @@ function App() {
           <Dashboard />
         </ProtectedDashboard>
       ),
-    },
+    },*/
     {
       path: "/consola/:platform",
       element: <ProductConsole />,

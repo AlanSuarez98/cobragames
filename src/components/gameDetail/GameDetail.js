@@ -1,10 +1,10 @@
 import { useParams } from "react-router";
-import Footer from "../footer/Footer";
 import Nav from "../nav/Nav";
 import "./GameDetail.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../loader/Loader";
+import FooterHome from "../home/componentsHome/footerHome/FooterHome";
 
 const GameDetail = () => {
   const { nombre } = useParams();
@@ -34,7 +34,7 @@ const GameDetail = () => {
         console.log("Error al obtener los datos:", error);
       }
     }
-
+    document.title = `Cobra Games | ${nombre}`;
     obtenerDatos();
   }, [nombre]);
 
@@ -78,7 +78,7 @@ const GameDetail = () => {
           />
         </div>
       </div>
-      <Footer />
+      <FooterHome />
     </>
   );
 };

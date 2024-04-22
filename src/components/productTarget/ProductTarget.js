@@ -1,5 +1,4 @@
 import axios from "axios";
-import Footer from "../footer/Footer";
 import Nav from "../nav/Nav";
 import "./ProductTarget.css";
 import { useEffect, useState } from "react";
@@ -7,6 +6,7 @@ import Loader from "../loader/Loader";
 import CardTarget from "../products/componentsProducts/cardTarget/CardTarget";
 import { useImageContext } from "../contexts/imageContext";
 import { Link } from "react-router-dom";
+import FooterHome from "../home/componentsHome/footerHome/FooterHome";
 
 const ProductTarget = () => {
   const [tarjetas, setTarjetas] = useState([]);
@@ -90,7 +90,7 @@ const ProductTarget = () => {
           </button>
         </div>
       </div>
-      <Footer />
+      <FooterHome />
     </>
   );
 };
