@@ -11,7 +11,6 @@ import GameDetail from "./components/gameDetail/GameDetail";
 import ProtectedDashboard from "./ProtectedDashboard";*/
 import CardDetail from "./components/cardDetail/CardDetail";
 import Contact from "./components/contact/Contact";
-import NotFound from "./components/notFound/NotFound";
 
 function App() {
   const router = createBrowserRouter([
@@ -58,11 +57,6 @@ function App() {
     {
       path: "/contacto",
       element: <Contact />,
-    },
-    {
-      // Esta ruta captura todas las demás rutas que no coinciden con las anteriores
-      path: "*",
-      element: <NotFound />,
     },
   ]);
   return <RouterProvider router={router} />;
