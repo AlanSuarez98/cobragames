@@ -118,51 +118,60 @@
 @media (min-width: 768.1px) and (max-width: 1024px) {
   .mainHome {
     width: 100%;
+    overflow: hidden;
     min-height: 60vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     align-items: center;
     justify-content: center;
+    padding: 50px 0;
   }
   .box-ps4 {
     width: 100%;
-    height: 60vh;
+    min-height: 60vh;
+    height: fit-content;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 15px 0;
   }
   .box-ps5 {
     width: 100%;
-    height: 60vh;
+    min-height: 60vh;
+    height: fit-content;
+    flex-direction: column-reverse;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 15px 0;
   }
   .boxTextHome {
-    width: 50%;
+    width: 125%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   .boxTextHome h1 {
-    width: 100%;
+    width: 80%;
     margin: 0 0 50px 0;
     text-align: center;
-    font-size: 30px;
+    font-size: 2rem;
   }
   .boxTextHome p {
     text-align: center;
-    width: 80%;
+    width: 65%;
     font-size: 1.5rem;
     font-weight: lighter;
   }
   .containCards {
-    width: 50%;
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 25px 0;
   }
 }
 

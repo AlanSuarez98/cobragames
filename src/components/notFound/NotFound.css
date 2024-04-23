@@ -1,4 +1,4 @@
-@media (min-width: 320px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .notFound {
     width: 100%;
     height: fit-content;
@@ -48,7 +48,154 @@
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1440px) {
+@media (min-width: 425.1px) and (max-width: 768px) {
+  .notFound {
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(26, 26, 26);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    color: white;
+    padding: 0 0 100px 0;
+  }
+  .notFound img {
+    width: 100%;
+    filter: drop-shadow(0px 0px 25px rgba(205, 205, 205, 0.3));
+  }
+  .textNotFound {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .textNotFound h1 {
+    font-size: 10.5rem;
+  }
+  .textNotFound h2 {
+    font-size: 2.5rem;
+    padding: 0 0 50px 0;
+  }
+  .textNotFound button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid white;
+    cursor: pointer;
+    background-color: #d4a108;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-wrap: nowrap;
+    box-shadow: 2px 2px 4px rgba(205, 205, 205, 0.8);
+    transition: 0.2s ease-in-out all;
+  }
+  .textNotFound button:hover {
+    box-shadow: none;
+    transition: 0.2s ease-in-out all;
+  }
+}
+
+@media (min-width: 768.1px) and (max-width: 1024px) {
+  .notFound {
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(26, 26, 26);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    color: white;
+    padding: 0 0 100px 0;
+  }
+  .notFound img {
+    width: 100%;
+    filter: drop-shadow(0px 0px 25px rgba(205, 205, 205, 0.3));
+  }
+  .textNotFound {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .textNotFound h1 {
+    font-size: 10.5rem;
+  }
+  .textNotFound h2 {
+    font-size: 2.5rem;
+    padding: 0 0 50px 0;
+  }
+  .textNotFound button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid white;
+    cursor: pointer;
+    background-color: #d4a108;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-wrap: nowrap;
+    box-shadow: 2px 2px 4px rgba(205, 205, 205, 0.8);
+    transition: 0.2s ease-in-out all;
+  }
+  .textNotFound button:hover {
+    box-shadow: none;
+    transition: 0.2s ease-in-out all;
+  }
+}
+
+@media (min-width: 1024.1px) and (max-width: 1440px) {
+  .notFound {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(26, 26, 26);
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    color: white;
+  }
+  .notFound img {
+    filter: drop-shadow(0px 0px 25px rgba(205, 205, 205, 0.3));
+  }
+  .textNotFound {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .textNotFound h1 {
+    font-size: 10.5rem;
+  }
+  .textNotFound h2 {
+    font-size: 2.5rem;
+    padding: 0 0 50px 0;
+  }
+  .textNotFound button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid white;
+    cursor: pointer;
+    background-color: #d4a108;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-wrap: nowrap;
+    box-shadow: 2px 2px 4px rgba(205, 205, 205, 0.8);
+    transition: 0.2s ease-in-out all;
+  }
+  .textNotFound button:hover {
+    box-shadow: none;
+    transition: 0.2s ease-in-out all;
+  }
+}
+
+@media (min-width: 1440.1px) {
   .notFound {
     width: 100%;
     height: 100vh;
