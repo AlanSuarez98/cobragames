@@ -23,10 +23,6 @@ function App() {
       path: "/catálogo",
       element: <Products />,
     },
-    {
-      path: "/*",
-      element: <NotFound />,
-    },
     /*{
       path: "/login",
       element: (
@@ -62,6 +58,11 @@ function App() {
     {
       path: "/contacto",
       element: <Contact />,
+    },
+    {
+      // Esta ruta captura todas las demás rutas que no coinciden con las anteriores
+      path: "/*",
+      element: <NotFound />,
     },
   ]);
   return <RouterProvider router={router} />;
