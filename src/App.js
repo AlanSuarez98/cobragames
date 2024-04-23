@@ -61,7 +61,7 @@ function App() {
     },
     {
       // Esta ruta captura todas las demás rutas que no coinciden con las anteriores
-      path: "/*",
+      path: "*",
       element: <NotFound />,
     },
   ]);
