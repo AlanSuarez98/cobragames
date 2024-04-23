@@ -22,7 +22,7 @@ const ProductConsole = () => {
     async function obtenerDatos() {
       try {
         const response = await axios.get(
-          "https://data-cobragames.onrender.com/data"
+          `https://data-cobragames.onrender.com/data/platform?platform=${platform}`
         );
         setJuegos(response.data.juegos);
       } catch (error) {
@@ -31,7 +31,7 @@ const ProductConsole = () => {
     }
 
     obtenerDatos();
-  }, []);
+  }, [platform]);
   useEffect(() => {
     document.title = `Cobra Games | Juegos ${platform}`;
   }, [platform]);
