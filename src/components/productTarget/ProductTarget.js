@@ -22,7 +22,7 @@ const ProductTarget = () => {
     async function obtenerDatos() {
       try {
         const response = await axios.get(
-          "https://data-cobragames.onrender.com/tarjetas"
+          "https://data-cobragames.vercel.app/tarjetas"
         );
         setTarjetas(response.data.tarjetas);
       } catch (error) {

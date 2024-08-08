@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CardGames from "../products/componentsProducts/cardGames/CardGames";
-import LoaderGames from "../loader/LoaderGames";
+import Loader from "../loader/Loader";
 import { Link } from "react-router-dom";
 import { useImageContext } from "../contexts/imageContext";
 import FooterHome from "../home/componentsHome/footerHome/FooterHome";
@@ -22,7 +22,7 @@ const ProductConsole = () => {
     async function obtenerDatos() {
       try {
         const response = await axios.get(
-          `https://data-cobragames.onrender.com/data/platform?platform=${platform}`
+          `https://data-cobragames.vercel.app/data/platform?platform=${platform}`
         );
         setJuegos(response.data.juegos);
       } catch (error) {
@@ -32,21 +32,26 @@ const ProductConsole = () => {
 
     obtenerDatos();
   }, [platform]);
+
   useEffect(() => {
     document.title = `Cobra Games | Juegos ${platform}`;
   }, [platform]);
 
   const handleSearch = (term) => {
     setSearchTerm(term);
-    const results = juegos.filter((juego) =>
-      juego.nombre.toLowerCase().includes(term.toLowerCase())
-    );
+    const results = juegos.filter((juego) => {
+      // Verifica que juego.nombre no sea null ni undefined
+      if (juego.nombre) {
+        return juego.nombre.toLowerCase().includes(term.toLowerCase());
+      }
+      return false; // Si juego.nombre es null o undefined, no incluirlo en los resultados
+    });
     setSearchResults(results);
     setCurrentPage(1); // Restablecer la página actual al realizar una búsqueda
   };
 
   if (!juegos.length) {
-    return <LoaderGames />;
+    return <Loader />;
   }
 
   const imagenProp = `imagen_${platform.toLowerCase()}`;

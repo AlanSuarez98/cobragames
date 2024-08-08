@@ -20,7 +20,7 @@ const GameDetail = () => {
     async function obtenerDatos() {
       try {
         const response = await axios.get(
-          "https://data-cobragames.onrender.com/data"
+          "https://data-cobragames.vercel.app/data"
         );
         const juego = response.data.juegos.find(
           (juego) => juego.nombre === nombre

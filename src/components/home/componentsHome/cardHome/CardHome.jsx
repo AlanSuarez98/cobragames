@@ -17,7 +17,7 @@ export default function CardHome({ imagenProp }) {
     async function obtenerDatos() {
       try {
         const response = await axios.get(
-          "https://data-cobragames.onrender.com/data"
+          "https://data-cobragames.vercel.app/data"
         );
         setJuegos(response.data.juegos);
         console.log("Juegos:", response.data.juegos);

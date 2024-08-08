@@ -10,9 +10,11 @@ const NavHome = () => {
   const handleGamesPS5 = () => {
     navigate("/consola/PS5");
   };
+  /*
   const handleTarget = () => {
     navigate("/tarjetas");
   };
+  */
   const handleShop = () => {
     navigate("/catálogo");
   };
@@ -27,9 +29,6 @@ const NavHome = () => {
       </button>
       <button onClick={handleGamesPS4}>
         <span>{">  "}</span> Juegos PS4
-      </button>
-      <button onClick={handleTarget}>
-        <span>{">  "}</span> Tarjetas
       </button>
       <button onClick={handleContact}>
         <span>{">  "}</span> Contacto

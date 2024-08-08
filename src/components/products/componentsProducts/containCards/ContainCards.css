@@ -12,6 +12,7 @@ a {
     align-items: center;
     padding: 75px 0;
     position: relative;
+    overflow: hidden;
   }
   .viewAll {
     position: absolute;
@@ -70,6 +71,7 @@ a {
     align-items: center;
     padding: 75px 0;
     position: relative;
+    overflow: hidden;
   }
   .viewAll {
     position: absolute;
@@ -128,6 +130,7 @@ a {
     align-items: center;
     padding: 75px 0;
     position: relative;
+    overflow: hidden;
   }
   .viewAll {
     position: absolute;
@@ -186,6 +189,7 @@ a {
     align-items: center;
     padding: 75px 0;
     position: relative;
+    overflow: hidden;
   }
   .viewAll {
     position: absolute;
@@ -244,6 +248,7 @@ a {
     align-items: center;
     padding: 75px 0;
     position: relative;
+    overflow: hidden;
   }
   .viewAll {
     position: absolute;

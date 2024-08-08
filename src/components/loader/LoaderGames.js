@@ -2,7 +2,7 @@ import "./LoaderGames.css";
 
 const LoaderGames = () => {
   return (
-    <div className="boxLoader">
+    <div className="boxLoaderGames">
       <div className="loader">
         <svg viewBox="0 0 80 80">
           <circle id="test" cx="40" cy="40" r="32"></circle>

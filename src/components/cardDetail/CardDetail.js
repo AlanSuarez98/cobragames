@@ -19,7 +19,7 @@ const CardDetail = () => {
     async function obtenerDatos() {
       try {
         const response = await axios.get(
-          "https://data-cobragames.onrender.com/tarjetas"
+          "https://data-cobragames.vercel.app/tarjetas"
         );
         const tarjeta = response.data.tarjetas.find(
           (tarjeta) => tarjeta.nombre === nombre

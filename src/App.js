@@ -5,11 +5,11 @@ import Products from "./components/products/Products";
 /*import LoginSignUp from "./components/loginsignup/LoginSignUp";
 import Dashboard from "./components/dashboard/Dashboard";*/
 import ProductConsole from "./components/productConsole/ProductConsole";
-import ProductTarget from "./components/productTarget/ProductTarget";
+/*import ProductTarget from "./components/productTarget/ProductTarget";*/
 import GameDetail from "./components/gameDetail/GameDetail";
 /*import ProtectedLogin from "./ProtectedLogin";
-import ProtectedDashboard from "./ProtectedDashboard";*/
-import CardDetail from "./components/cardDetail/CardDetail";
+import ProtectedDashboard from "./ProtectedDashboard";
+import CardDetail from "./components/cardDetail/CardDetail";*/
 import Contact from "./components/contact/Contact";
 
 function App() {
@@ -42,18 +42,22 @@ function App() {
       path: "/consola/:platform",
       element: <ProductConsole />,
     },
+    /* 
     {
       path: "/tarjetas",
       element: <ProductTarget />,
     },
+    */
     {
       path: "/juego/:nombre",
       element: <GameDetail />,
     },
+    /* 
     {
       path: "/tarjeta/:nombre",
       element: <CardDetail />,
     },
+    */
     {
       path: "/contacto",
       element: <Contact />,

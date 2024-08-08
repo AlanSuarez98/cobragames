@@ -11,6 +11,7 @@ a {
     align-items: center;
     position: relative;
     padding: 35px 0;
+    overflow: hidden;
   }
   .viewAllTarget {
     position: absolute;
@@ -69,6 +70,7 @@ a {
     align-items: center;
     position: relative;
     padding: 35px 0;
+    overflow: hidden;
   }
   .viewAllTarget {
     position: absolute;
@@ -127,6 +129,7 @@ a {
     align-items: center;
     position: relative;
     padding: 35px 0;
+    overflow: hidden;
   }
   .viewAllTarget {
     position: absolute;
@@ -185,6 +188,7 @@ a {
     align-items: center;
     position: relative;
     padding: 35px 0;
+    overflow: hidden;
   }
   .viewAllTarget {
     position: absolute;
@@ -243,6 +247,7 @@ a {
     align-items: center;
     position: relative;
     padding: 35px 0;
+    overflow: hidden;
   }
   .viewAllTarget {
     position: absolute;
