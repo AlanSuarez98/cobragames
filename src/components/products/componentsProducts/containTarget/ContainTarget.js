@@ -33,7 +33,7 @@ const ContainTarget = () => {
 
   return (
     <div className="containTarget">
-      <Link to={`/tarjetas`}>
+      <Link to={`/tienda/tarjetas`}>
         <button className="viewAllTarget">Ver todo</button>
       </Link>
       <h1 className="nameCard">Tarjetas</h1>

@@ -48,16 +48,16 @@ const Nav = ({ onSearch, showSearchInput, showTitle }) => {
     navigate("/dashboard");
   };
   const handleGamesPS4 = () => {
-    navigate("/consola/PS4");
+    navigate("/tienda/consola/PS4");
   };
   const handleGamesPS5 = () => {
-    navigate("/consola/PS5");
+    navigate("/tienda/consola/PS5");
   };
   const handleCard = () => {
-    navigate("/tarjetas");
+    navigate("/tienda/tarjetas");
   };
   const handleShop = () => {
-    navigate("/catálogo");
+    navigate("/tienda");
   };
   const handleContact = () => {
     navigate("/contacto");

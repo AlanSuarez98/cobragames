@@ -11,6 +11,7 @@ import GameDetail from "./components/gameDetail/GameDetail";
 import ProtectedDashboard from "./ProtectedDashboard";*/
 import CardDetail from "./components/cardDetail/CardDetail";
 import Contact from "./components/contact/Contact";
+import NotFound from "./components/notFound/NotFound";
 
 function App() {
   const router = createBrowserRouter([
@@ -19,7 +20,11 @@ function App() {
       element: <Home />,
     },
     {
-      path: "/catálogo",
+      path: "*",
+      element: <NotFound />,
+    },
+    {
+      path: "/tienda",
       element: <Products />,
     },
     /*{
@@ -39,19 +44,19 @@ function App() {
       ),
     },*/
     {
-      path: "/consola/:platform",
+      path: "/tienda/consola/:platform",
       element: <ProductConsole />,
     },
     {
-      path: "/tarjetas",
+      path: "/tienda/tarjetas",
       element: <ProductTarget />,
     },
     {
-      path: "/juego/:nombre",
+      path: "/tienda/juego/:nombre",
       element: <GameDetail />,
     },
     {
-      path: "/tarjeta/:nombre",
+      path: "/tienda/tarjeta/:nombre",
       element: <CardDetail />,
     },
     {

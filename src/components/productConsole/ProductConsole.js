@@ -78,7 +78,7 @@ const ProductConsole = () => {
           {juegosToShow.length > 0 ? (
             juegosToShow.map((juego, index) => (
               <Link
-                to={`/juego/${encodeURIComponent(juego.nombre)}`}
+                to={`/tienda/juego/${encodeURIComponent(juego.nombre)}`}
                 onClick={() => {
                   setImagenProp(juego[imagenProp]);
                   localStorage.setItem("imagenProp", juego[imagenProp]);

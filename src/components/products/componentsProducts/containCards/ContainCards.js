@@ -37,7 +37,7 @@ const ContainCards = ({ plataforma, imagenProp }) => {
 
   return (
     <div className="containCards">
-      <Link to={`/consola/${platform}`}>
+      <Link to={`/tienda/consola/${platform}`}>
         <button className="viewAll">Ver todo</button>
       </Link>
       <h1 className="namePlatform">{plataforma}</h1>

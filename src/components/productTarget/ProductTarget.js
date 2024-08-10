@@ -66,7 +66,7 @@ const ProductTarget = () => {
         <div className="boxGames">
           {tarjetasToShow.map((tarjeta, index) => (
             <Link
-              to={`/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}
+              to={`/tienda/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}
               onClick={() => {
                 setImagenProp(tarjeta.imagen);
                 localStorage.setItem("imagenProp", tarjeta.imagen);
