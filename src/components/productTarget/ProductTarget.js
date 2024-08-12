@@ -14,7 +14,7 @@ import icon from "../../assets/iconCard.png";
 const ProductTarget = () => {
   const [tarjetas, setTarjetas] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchTerm, setSearchTerm] = useState(""); // Agregar searchTerm aquí
+  const [setSearchTerm] = useState(""); // Agregar searchTerm aquí
   const [searchResults, setSearchResults] = useState([]);
   const gamesPerPage = 20;
   const { setImagenProp } = useImageContext();
