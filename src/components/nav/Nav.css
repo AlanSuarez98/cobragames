@@ -51,22 +51,7 @@
     left: -25px;
     padding: 0 5px;
   }
-  .containerSearching input {
-    width: 89%;
-    height: 100%;
-    padding: 0 0 0 15px;
-    background-color: transparent;
-    border: none;
-    color: white;
-  }
-  .containerSearching button {
-    height: 100%;
-    width: 11%;
-    background-color: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+
   .btnNav {
     display: flex;
     justify-content: center;
@@ -172,23 +157,7 @@
     left: -25px;
     padding: 0 5px;
   }
-  .containerSearching input {
-    width: 89%;
-    height: 100%;
-    font-size: 1.2rem;
-    padding: 0 0 0 15px;
-    background-color: transparent;
-    border: none;
-    color: white;
-  }
-  .containerSearching button {
-    height: 100%;
-    width: 11%;
-    background-color: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+
   .btnNav {
     display: flex;
     justify-content: center;
@@ -295,23 +264,7 @@
     left: -25px;
     padding: 0 5px;
   }
-  .containerSearching input {
-    width: 89%;
-    height: 100%;
-    font-size: 1.2rem;
-    padding: 0 0 0 15px;
-    background-color: transparent;
-    border: none;
-    color: white;
-  }
-  .containerSearching button {
-    height: 100%;
-    width: 11%;
-    background-color: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+
   .btnNav {
     display: flex;
     justify-content: center;
@@ -415,23 +368,7 @@
     left: -25px;
     padding: 0 5px;
   }
-  .containerSearching input {
-    width: 89%;
-    height: 100%;
-    font-size: 1.2rem;
-    padding: 0 0 0 15px;
-    background-color: transparent;
-    border: none;
-    color: white;
-  }
-  .containerSearching button {
-    height: 100%;
-    width: 11%;
-    background-color: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+
   .btnNav {
     display: flex;
     justify-content: center;
@@ -531,23 +468,7 @@
     left: -25px;
     padding: 0 5px;
   }
-  .containerSearching input {
-    width: 89%;
-    height: 100%;
-    font-size: 1.2rem;
-    padding: 0 0 0 15px;
-    background-color: transparent;
-    border: none;
-    color: white;
-  }
-  .containerSearching button {
-    height: 100%;
-    width: 11%;
-    background-color: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+
   .btnNav {
     display: flex;
     justify-content: center;

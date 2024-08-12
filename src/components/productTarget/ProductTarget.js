@@ -7,15 +7,20 @@ import CardTarget from "../products/componentsProducts/cardTarget/CardTarget";
 import { useImageContext } from "../contexts/imageContext";
 import { Link } from "react-router-dom";
 import FooterHome from "../home/componentsHome/footerHome/FooterHome";
+import PastPagination from "../subComponents/btnPagination/pastPagination/PastPagination";
+import NextPagination from "../subComponents/btnPagination/nextPagination/NextPagination";
+import icon from "../../assets/iconCard.png";
 
 const ProductTarget = () => {
   const [tarjetas, setTarjetas] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState(""); // Agregar searchTerm aquí
+  const [searchResults, setSearchResults] = useState([]);
   const gamesPerPage = 20;
   const { setImagenProp } = useImageContext();
 
   useEffect(() => {
-    document.title = `Cobra Games | Tarjetas`;
+    document.title = "Cobra Games | Tarjetas";
   }, []);
 
   useEffect(() => {
@@ -25,6 +30,7 @@ const ProductTarget = () => {
           "https://data-cobragames.vercel.app/tarjetas"
         );
         setTarjetas(response.data.tarjetas);
+        setSearchResults(response.data.tarjetas); // Inicialmente mostrar todas las tarjetas
       } catch (error) {
         console.log("Error al obtener los datos:", error);
       }
@@ -33,36 +39,51 @@ const ProductTarget = () => {
     obtenerDatos();
   }, []);
 
+  const handleSearch = (term) => {
+    setSearchTerm(term); // Actualizar el término de búsqueda
+    if (term === "") {
+      setSearchResults(tarjetas); // Mostrar todas las tarjetas si el término de búsqueda está vacío
+    } else {
+      const filteredResults = tarjetas.filter((tarjeta) =>
+        tarjeta.nombre.toLowerCase().includes(term.toLowerCase())
+      );
+      setSearchResults(filteredResults);
+      setCurrentPage(1); // Restablecer a la primera página después de la búsqueda
+    }
+  };
+
   if (!tarjetas.length) {
     return <Loader />;
   }
 
-  // Calcular el índice del último juego en la página actual
   const indexOfLastGame = currentPage * gamesPerPage;
-  // Calcular el índice del primer juego en la página actual
   const indexOfFirstGame = indexOfLastGame - gamesPerPage;
-  // Obtener los juegos para la página actual
-  const tarjetasToShow = tarjetas.slice(indexOfFirstGame, indexOfLastGame);
+  const tarjetasToShow = searchResults.slice(indexOfFirstGame, indexOfLastGame);
 
-  // Cambiar a la siguiente página
-  const nextPage = () => {
-    setCurrentPage(currentPage + 1);
-  };
-
-  // Cambiar a la página anterior
-  const prevPage = () => {
-    setCurrentPage(currentPage - 1);
-  };
-
-  // Verificar si estás en la primera página
+  const totalPages = Math.ceil(searchResults.length / gamesPerPage);
   const isFirstPage = currentPage === 1;
-  // Verificar si estás en la última página
-  const isLastPage = indexOfLastGame > tarjetas.length;
+  const isLastPage = currentPage === totalPages;
+
+  const heightCard = "100px";
+  const invertCard = "invert(1)";
+
   return (
     <>
-      <Nav showTitle={true} />
+      <Nav showTitle={false} onSearch={handleSearch} showSearchInput={true} />
       <div className="product-console">
-        <h1>Tarjetas</h1>
+        <h1
+          style={{
+            backgroundColor: "goldenrod",
+            boxShadow: "0px 0px 6px white",
+          }}
+        >
+          Tarjetas
+          <img
+            src={icon}
+            alt="Icon Card"
+            style={{ height: heightCard, filter: invertCard }}
+          />
+        </h1>
         <div className="boxGames">
           {tarjetasToShow.map((tarjeta, index) => (
             <Link
@@ -71,23 +92,25 @@ const ProductTarget = () => {
                 setImagenProp(tarjeta.imagen);
                 localStorage.setItem("imagenProp", tarjeta.imagen);
               }}
+              key={index}
             >
-              <CardTarget
-                key={index}
-                imagen={tarjeta.imagen}
-                nombre={tarjeta.nombre}
-              />
+              <CardTarget imagen={tarjeta.imagen} nombre={tarjeta.nombre} />
             </Link>
           ))}
         </div>
         <div className="boxPagination">
-          <button onClick={prevPage} disabled={isFirstPage}>
-            Anterior
-          </button>
-          <p>{currentPage}</p>
-          <button onClick={nextPage} disabled={isLastPage}>
-            Siguiente
-          </button>
+          {!isFirstPage && (
+            <PastPagination
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            />
+          )}
+          {!isLastPage && (
+            <NextPagination
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+            />
+          )}
         </div>
       </div>
       <FooterHome />

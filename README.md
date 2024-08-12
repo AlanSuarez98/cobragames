@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+Cobra Games
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    Cobra Games es un E-Commerce, una tienda virtual dedicada a la venta de videojuegos digitales para plataformas PS4 y PS5.
 
-## Available Scripts
+///Descripción\\\
 
-In the project directory, you can run:
+    Este proyecto permite a los usuarios navegar y comprar videojuegos digitales para PS4 y PS5 de manera rápida y segura.
 
-### `npm start`
+///Requisitos Previos\\\
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Antes de comenzar, asegúrate de tener instalados los siguientes requisitos:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    * Node.js
+    * npm (se instala automáticamente con Node.js)
 
-### `npm test`
+///Instalación\\\
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para iniciar el proyecto localmente, sigue estos pasos:
 
-### `npm run build`
+Clona el repositorio:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    * git clone https://github.com/tu-usuario/cobra-games.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Navega al directorio del proyecto:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    * cd cobra-games
 
-### `npm run eject`
+Instala las dependencias necesarias:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    * npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+///Instrucciones de Uso\\\
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Una vez que las dependencias estén instaladas, puedes iniciar el proyecto en modo de desarrollo:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    * npm start
 
-## Learn More
+Esto abrirá la aplicación en tu navegador en http://localhost:3000.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+///Características Principales\\\
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Listado de videojuegos digitales para PS4 y PS5.
+Posibilidad de comprar juegos digitales directamente a través de la página.
 
-### Code Splitting
+Despliegue
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Cobra Games está desplegado en Netlify. Puedes visitar el sitio en vivo en: https://cobragames.com.ar/
 
-### Analyzing the Bundle Size
+///Capturas de Pantalla\\\
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Página principal de Cobra Games](./src/assets/ScreenHomePage.png)
+![Tienda](./src/assets/ScreenShop.png)
+![Juegos PS5](./src/assets/ScreenGamesPs5.png)
+![Juegos PS4](./src/assets/ScreenGamesPs4.png)
+![Tarjetas](./src/assets/ScreenCard.png)
+![Contacto](./src/assets/ScreenContact.png)
 
-### Making a Progressive Web App
+///Contribución\\\
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Si deseas contribuir al proyecto, no dudes en enviar un pull request.
 
-### Advanced Configuration
+///Licencia\\\
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Este proyecto está licenciado bajo la GNU General Public License v3.0. Para más detalles, consulta el archivo LICENSE.
 
-### Deployment
+//Contacto\\\
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Para preguntas o sugerencias, puedes contactarnos en alansuarez641@hotmail.com.
