@@ -41,14 +41,14 @@
 
   .containerSearching {
     background-color: rgb(26, 26, 26);
-    width: 150px;
+    width: 100px;
     height: 35px;
     border-radius: 50px;
     overflow: hidden;
     display: flex;
     align-items: center;
     position: relative;
-    left: -25px;
+    left: -75px;
     padding: 0 5px;
   }
 
@@ -147,7 +147,7 @@
 
   .containerSearching {
     background-color: rgb(26, 26, 26);
-    width: 350px;
+    width: 100px;
     height: 45px;
     border-radius: 50px;
     overflow: hidden;

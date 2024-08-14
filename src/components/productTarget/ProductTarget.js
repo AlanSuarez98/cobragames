@@ -14,7 +14,8 @@ import icon from "../../assets/iconCard.png";
 const ProductTarget = () => {
   const [tarjetas, setTarjetas] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [setSearchTerm] = useState(""); // Agregar searchTerm aquí
+  // eslint-disable-next-line no-unused-vars
+  const [searchTerm, setSearchTerm] = useState(""); // Agregar searchTerm aquí
   const [searchResults, setSearchResults] = useState([]);
   const gamesPerPage = 20;
   const { setImagenProp } = useImageContext();
@@ -64,7 +65,7 @@ const ProductTarget = () => {
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
 
-  const heightCard = "100px";
+  const heightCard = window.innerWidth < 450 ? "150%" : "100px";
   const invertCard = "invert(1)";
 
   return (
