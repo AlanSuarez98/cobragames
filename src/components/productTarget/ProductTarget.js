@@ -14,8 +14,7 @@ import icon from "../../assets/iconCard.png";
 const ProductTarget = () => {
   const [tarjetas, setTarjetas] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  // eslint-disable-next-line no-unused-vars
-  const [searchTerm, setSearchTerm] = useState(""); // Agregar searchTerm aquí
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const gamesPerPage = 20;
   const { setImagenProp } = useImageContext();
@@ -41,9 +40,9 @@ const ProductTarget = () => {
   }, []);
 
   const handleSearch = (term) => {
-    setSearchTerm(term); // Actualizar el término de búsqueda
+    setSearchTerm(term);
     if (term === "") {
-      setSearchResults(tarjetas); // Mostrar todas las tarjetas si el término de búsqueda está vacío
+      setSearchResults(tarjetas);
     } else {
       const filteredResults = tarjetas.filter((tarjeta) =>
         tarjeta.nombre.toLowerCase().includes(term.toLowerCase())
@@ -68,6 +67,9 @@ const ProductTarget = () => {
   const heightCard = window.innerWidth < 450 ? "150%" : "100px";
   const invertCard = "invert(1)";
 
+  // Condición para mostrar los botones de paginación
+  const shouldShowPagination = searchResults.length > gamesPerPage;
+
   return (
     <>
       <Nav showTitle={false} onSearch={handleSearch} showSearchInput={true} />
@@ -86,33 +88,43 @@ const ProductTarget = () => {
           />
         </h1>
         <div className="boxGames">
-          {tarjetasToShow.map((tarjeta, index) => (
-            <Link
-              to={`/tienda/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}
-              onClick={() => {
-                setImagenProp(tarjeta.imagen);
-                localStorage.setItem("imagenProp", tarjeta.imagen);
-              }}
-              key={index}
-            >
-              <CardTarget imagen={tarjeta.imagen} nombre={tarjeta.nombre} />
-            </Link>
-          ))}
-        </div>
-        <div className="boxPagination">
-          {!isFirstPage && (
-            <PastPagination
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-            />
-          )}
-          {!isLastPage && (
-            <NextPagination
-              setCurrentPage={setCurrentPage}
-              currentPage={currentPage}
-            />
+          {searchTerm && searchResults.length === 0 ? (
+            <p className="messageNotFound">
+              No se encontraron tarjetas con el nombre "{searchTerm}"
+            </p>
+          ) : (
+            tarjetasToShow.map((tarjeta, index) => (
+              <Link
+                to={`/tienda/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}
+                onClick={() => {
+                  setImagenProp(tarjeta.imagen);
+                  localStorage.setItem("imagenProp", tarjeta.imagen);
+                }}
+                key={index}
+              >
+                <CardTarget imagen={tarjeta.imagen} nombre={tarjeta.nombre} />
+              </Link>
+            ))
           )}
         </div>
+        {!searchTerm || searchResults.length > 0
+          ? shouldShowPagination && (
+              <div className="boxPagination">
+                {!isFirstPage && (
+                  <PastPagination
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                  />
+                )}
+                {!isLastPage && (
+                  <NextPagination
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                  />
+                )}
+              </div>
+            )
+          : null}
       </div>
       <FooterHome />
     </>

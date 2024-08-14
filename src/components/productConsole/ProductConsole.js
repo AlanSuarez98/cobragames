@@ -58,15 +58,14 @@ const ProductConsole = () => {
 
   const imagenProp = `imagen_${platform.toLowerCase()}`;
 
-  const juegosToShow =
-    searchResults.length > 0
-      ? searchResults
-      : juegos.slice(
-          (currentPage - 1) * gamesPerPage,
-          currentPage * gamesPerPage
-        );
+  const juegosToShow = searchResults.length > 0 ? searchResults : juegos;
+  const startIndex = (currentPage - 1) * gamesPerPage;
+  const selectedGames = juegosToShow.slice(
+    startIndex,
+    startIndex + gamesPerPage
+  );
 
-  const totalPages = Math.ceil(juegos.length / gamesPerPage);
+  const totalPages = Math.ceil(juegosToShow.length / gamesPerPage);
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
 
@@ -98,6 +97,9 @@ const ProductConsole = () => {
       ? "0px 0px 10px #0050a8"
       : "none";
 
+  const shouldShowPagination =
+    juegosToShow.length > gamesPerPage && searchResults.length > 0;
+
   return (
     <>
       <Nav onSearch={handleSearch} showSearchInput={true} showTitle={false} />
@@ -109,8 +111,12 @@ const ProductConsole = () => {
           <img src={icon} alt="iconPlay" style={{ filter: invert }} />
         </h1>
         <div className="boxGames">
-          {juegosToShow.length > 0 ? (
-            juegosToShow.map((juego, index) => (
+          {searchTerm && searchResults.length === 0 ? (
+            <p className="messageNotFound">
+              No se encontraron juegos con el nombre "{searchTerm}"
+            </p>
+          ) : (
+            selectedGames.map((juego, index) => (
               <Link
                 to={`/tienda/juego/${encodeURIComponent(juego.nombre)}`}
                 onClick={() => {
@@ -122,24 +128,24 @@ const ProductConsole = () => {
                 <CardGames imagen={juego[imagenProp]} nombre={juego.nombre} />
               </Link>
             ))
-          ) : (
-            <p>No se encontraron juegos con el nombre "{searchTerm}"</p>
           )}
         </div>
-        <div className="boxPagination">
-          {!searchResults.length && !isFirstPage && (
-            <PastPagination
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-            />
-          )}
-          {!searchResults.length && !isLastPage && (
-            <NextPagination
-              setCurrentPage={setCurrentPage}
-              currentPage={currentPage}
-            />
-          )}
-        </div>
+        {shouldShowPagination && (
+          <div className="boxPagination">
+            {!isFirstPage && (
+              <PastPagination
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
+            )}
+            {!isLastPage && (
+              <NextPagination
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+              />
+            )}
+          </div>
+        )}
       </div>
       <FooterHome />
     </>
