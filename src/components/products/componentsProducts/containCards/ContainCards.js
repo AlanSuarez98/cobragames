@@ -59,7 +59,7 @@ const ContainCards = ({ plataforma, imagenProp }) => {
         {juegos.slice(0, 10).map((juego, index) => (
           <SwiperSlide className="swiperProducts">
             <Link
-              to={`/juego/${encodeURIComponent(juego.nombre)}`}
+              to={`/tienda/juego/${encodeURIComponent(juego.nombre)}`}
               onClick={() => {
                 setImagenProp(juego[imagenProp]);
                 localStorage.setItem("imagenProp", juego[imagenProp]);

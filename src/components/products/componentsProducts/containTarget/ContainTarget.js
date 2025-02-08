@@ -54,7 +54,7 @@ const ContainTarget = () => {
       >
         {tarjetas.slice(0, 10).map((tarjeta, index) => (
           <SwiperSlide className="sliderTarget">
-            <Link to={`/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}>
+            <Link to={`/tienda/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}>
               <CardTarget
                 key={index}
                 imagen={tarjeta.imagen}
