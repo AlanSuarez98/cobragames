@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import Home from "./components/home/Home";
+/*import Home from "./components/home/Home";*/
 import Products from "./components/products/Products";
 /*import LoginSignUp from "./components/loginsignup/LoginSignUp";
 import Dashboard from "./components/dashboard/Dashboard";*/
@@ -12,12 +12,17 @@ import ProtectedDashboard from "./ProtectedDashboard";*/
 import CardDetail from "./components/cardDetail/CardDetail";
 import Contact from "./components/contact/Contact";
 import NotFound from "./components/notFound/NotFound";
+import InMaintenance from "./components/inMaintenance/InMaintenance";
 
 function App() {
   const router = createBrowserRouter([
-    {
+    /*{
       path: "/",
       element: <Home />,
+    },*/
+    {
+      path: "/",
+      element: <InMaintenance />,
     },
     {
       path: "*",

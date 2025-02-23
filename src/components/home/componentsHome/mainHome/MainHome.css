@@ -55,7 +55,7 @@
   }
 }
 
-@media (min-width: 425.1px) and (max-width: 768px) {
+@media (min-width: 426px) and (max-width: 768px) {
   .mainHome {
     width: 100%;
     overflow: hidden;
@@ -115,7 +115,7 @@
   }
 }
 
-@media (min-width: 768.1px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .mainHome {
     width: 100%;
     overflow: hidden;
@@ -175,7 +175,7 @@
   }
 }
 
-@media (min-width: 1024.1px) and (max-width: 1440px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
   .mainHome {
     width: 100%;
     min-height: 60vh;
@@ -225,7 +225,7 @@
     align-items: center;
   }
 }
-@media (min-width: 1440.1px) {
+@media (min-width: 1441px) {
   .mainHome {
     width: 100%;
     min-height: 60vh;
