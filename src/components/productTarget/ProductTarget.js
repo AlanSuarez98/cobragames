@@ -4,7 +4,6 @@ import "./ProductTarget.css";
 import { useEffect, useState } from "react";
 import Loader from "../loader/Loader";
 import CardTarget from "../products/componentsProducts/cardTarget/CardTarget";
-import { useImageContext } from "../contexts/imageContext";
 import { Link } from "react-router-dom";
 import FooterHome from "../home/componentsHome/footerHome/FooterHome";
 import PastPagination from "../subComponents/btnPagination/pastPagination/PastPagination";
@@ -17,7 +16,6 @@ const ProductTarget = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const gamesPerPage = 20;
-  const { setImagenProp } = useImageContext();
 
   useEffect(() => {
     document.title = "Cobra Games | Tarjetas";
@@ -39,6 +37,19 @@ const ProductTarget = () => {
     obtenerDatos();
   }, []);
 
+  const formatearPrecio = (precio) => {
+    const numero = Number(precio);
+    if (isNaN(numero)) {
+      return precio;
+    }
+    return numero
+      .toLocaleString("es-ES", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      })
+      .replace(/\./g, ".");
+  };
+
   const handleSearch = (term) => {
     setSearchTerm(term);
     if (term === "") {
@@ -50,6 +61,12 @@ const ProductTarget = () => {
       setSearchResults(filteredResults);
       setCurrentPage(1); // Restablecer a la primera página después de la búsqueda
     }
+  };
+
+  // Función para manejar el cambio de página y desplazarse al inicio
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage); // Cambiar la página
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Desplazar al inicio de la página
   };
 
   if (!tarjetas.length) {
@@ -94,16 +111,31 @@ const ProductTarget = () => {
             </p>
           ) : (
             tarjetasToShow.map((tarjeta, index) => (
-              <Link
-                to={`/tienda/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}
-                onClick={() => {
-                  setImagenProp(tarjeta.imagen);
-                  localStorage.setItem("imagenProp", tarjeta.imagen);
-                }}
+              <div
                 key={index}
+                className={tarjeta.stock === "No" ? "gameOutOfStock" : ""}
               >
-                <CardTarget imagen={tarjeta.imagen} nombre={tarjeta.nombre} />
-              </Link>
+                {tarjeta.stock === "No" ? (
+                  <div className="gameOutOfStock">
+                    <CardTarget
+                      imagen={tarjeta.imagen}
+                      nombre={tarjeta.nombre}
+                      precio={formatearPrecio(tarjeta.precio)}
+                      stock={tarjeta.stock}
+                    />
+                  </div>
+                ) : (
+                  <Link
+                    to={`/tienda/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}
+                  >
+                    <CardTarget
+                      imagen={tarjeta.imagen}
+                      nombre={tarjeta.nombre}
+                      precio={formatearPrecio(tarjeta.precio)}
+                    />
+                  </Link>
+                )}
+              </div>
             ))
           )}
         </div>
@@ -113,12 +145,12 @@ const ProductTarget = () => {
                 {!isFirstPage && (
                   <PastPagination
                     currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
+                    setCurrentPage={handlePageChange} // Usar handlePageChange
                   />
                 )}
                 {!isLastPage && (
                   <NextPagination
-                    setCurrentPage={setCurrentPage}
+                    setCurrentPage={handlePageChange} // Usar handlePageChange
                     currentPage={currentPage}
                   />
                 )}

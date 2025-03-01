@@ -50,6 +50,12 @@
     cursor: default;
     border: 1px solid #d4a108;
   }
+  /* Estilo para los juegos sin stock */
+  .gameOutOfStock {
+    opacity: 0.5; /* Oscurece el juego */
+    pointer-events: none; /* Deshabilita los clics */
+    cursor: not-allowed; /* Cambia el cursor a "no permitido" */
+  }
 }
 
 @media (min-width: 430.1px) and (max-width: 768px) {
@@ -101,6 +107,12 @@
     padding: 4px 5px;
     cursor: default;
     border: 1px solid #d4a108;
+  }
+  /* Estilo para los juegos sin stock */
+  .gameOutOfStock {
+    opacity: 0.5; /* Oscurece el juego */
+    pointer-events: none; /* Deshabilita los clics */
+    cursor: not-allowed; /* Cambia el cursor a "no permitido" */
   }
 }
 
@@ -154,9 +166,15 @@
     cursor: default;
     border: 1px solid #d4a108;
   }
+  /* Estilo para los juegos sin stock */
+  .gameOutOfStock {
+    opacity: 0.5; /* Oscurece el juego */
+    pointer-events: none; /* Deshabilita los clics */
+    cursor: not-allowed; /* Cambia el cursor a "no permitido" */
+  }
 }
 
-@media (min-width: 1024.1px) and (max-width: 1440px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
   .product-console {
     background-color: rgb(26, 26, 26);
     width: 100%;
@@ -206,9 +224,15 @@
     cursor: default;
     border: 1px solid #d4a108;
   }
+  /* Estilo para los juegos sin stock */
+  .gameOutOfStock {
+    color: white;
+    opacity: 0.5; /* Oscurece el juego */
+    cursor: not-allowed;
+  }
 }
 
-@media (min-width: 1440.1px) {
+@media (min-width: 1441px) {
   .product-console {
     background-color: rgb(26, 26, 26);
     width: 100%;
@@ -257,6 +281,11 @@
     padding: 4px 5px;
     cursor: default;
     border: 1px solid #d4a108;
+  }
+
+  /* Estilo para los juegos sin stock */
+  .gameOutOfStock {
+    opacity: 0.5; /* Oscurece el juego */
   }
 }
 .messageNotFound {

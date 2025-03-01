@@ -1,0 +1,16 @@
+.advertising {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 0;
+}
+.advertising img {
+  width: 90%;
+  cursor: pointer;
+}
+.advertising img:hover {
+  filter: brightness(0.8);
+  transition: 0.2s all ease-in-out;
+}

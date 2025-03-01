@@ -1,12 +1,11 @@
 import Nav from "../nav/Nav";
-import "./ProductConsole.css";
+import "./ProductConsole.css"; // Asegúrate de que este archivo CSS esté correctamente vinculado
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CardGames from "../products/componentsProducts/cardGames/CardGames";
 import Loader from "../loader/Loader";
 import { Link } from "react-router-dom";
-import { useImageContext } from "../contexts/imageContext";
 import FooterHome from "../home/componentsHome/footerHome/FooterHome";
 import NextPagination from "../subComponents/btnPagination/nextPagination/NextPagination";
 import PastPagination from "../subComponents/btnPagination/pastPagination/PastPagination";
@@ -19,7 +18,6 @@ const ProductConsole = () => {
   const gamesPerPage = 20;
   const [searchResults, setSearchResults] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const { setImagenProp } = useImageContext();
 
   useEffect(() => {
     async function obtenerDatos() {
@@ -36,6 +34,19 @@ const ProductConsole = () => {
     obtenerDatos();
   }, [platform]);
 
+  const formatearPrecio = (precio) => {
+    const numero = Number(precio);
+    if (isNaN(numero)) {
+      return precio;
+    }
+    return numero
+      .toLocaleString("es-ES", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      })
+      .replace(/\./g, ".");
+  };
+
   useEffect(() => {
     document.title = `Cobra Games | Juegos ${platform}`;
   }, [platform]);
@@ -49,14 +60,17 @@ const ProductConsole = () => {
       return false;
     });
     setSearchResults(results);
-    setCurrentPage(1);
+    setCurrentPage(1); // Resetear a la primera página al realizar una búsqueda
+  };
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage); // Cambiar la página
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Desplazar al inicio de la página
   };
 
   if (!juegos.length) {
     return <Loader />;
   }
-
-  const imagenProp = `imagen_${platform.toLowerCase()}`;
 
   const juegosToShow = searchResults.length > 0 ? searchResults : juegos;
   const startIndex = (currentPage - 1) * gamesPerPage;
@@ -97,8 +111,8 @@ const ProductConsole = () => {
       ? "0px 0px 10px #0050a8"
       : "none";
 
-  const shouldShowPagination =
-    juegosToShow.length > gamesPerPage && searchResults.length > 0;
+  const shouldShowPagination = juegosToShow.length > gamesPerPage;
+  const lowPlatform = platform.toLowerCase();
 
   return (
     <>
@@ -117,16 +131,33 @@ const ProductConsole = () => {
             </p>
           ) : (
             selectedGames.map((juego, index) => (
-              <Link
-                to={`/tienda/juego/${encodeURIComponent(juego.nombre)}`}
-                onClick={() => {
-                  setImagenProp(juego[imagenProp]);
-                  localStorage.setItem("imagenProp", juego[imagenProp]);
-                }}
+              <div
                 key={index}
+                className={juego.stock === "No" ? "gameOutOfStock" : ""}
               >
-                <CardGames imagen={juego[imagenProp]} nombre={juego.nombre} />
-              </Link>
+                {juego.stock === "No" ? (
+                  <div className="gameOutOfStock">
+                    <CardGames
+                      imagen={juego.imagen}
+                      nombre={juego.nombre}
+                      precio={formatearPrecio(juego.primario)}
+                      stock={juego.stock}
+                    />
+                  </div>
+                ) : (
+                  <Link
+                    to={`/tienda/juego/${encodeURIComponent(
+                      lowPlatform
+                    )}/${encodeURIComponent(juego.nombre)}`}
+                  >
+                    <CardGames
+                      imagen={juego.imagen}
+                      nombre={juego.nombre}
+                      precio={formatearPrecio(juego.primario)}
+                    />
+                  </Link>
+                )}
+              </div>
             ))
           )}
         </div>
@@ -135,12 +166,12 @@ const ProductConsole = () => {
             {!isFirstPage && (
               <PastPagination
                 currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
+                setCurrentPage={handlePageChange} // Usar handlePageChange
               />
             )}
             {!isLastPage && (
               <NextPagination
-                setCurrentPage={setCurrentPage}
+                setCurrentPage={handlePageChange} // Usar handlePageChange
                 currentPage={currentPage}
               />
             )}

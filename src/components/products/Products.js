@@ -1,3 +1,4 @@
+import Advertising from "../home/componentsHome/advertising/Advertising";
 import FooterHome from "../home/componentsHome/footerHome/FooterHome";
 import Nav from "../nav/Nav";
 import "./Products.css";
@@ -13,11 +14,11 @@ const Products = () => {
   return (
     <div className="products">
       <Nav className="nav" showSearchInput={false} showTitle={true} />
-
+      <Advertising />
       <div className="containGames">
-        <ContainCards plataforma={"PS5"} imagenProp="imagen_ps5" />
+        <ContainCards plataforma={"PS5"} />
         <ContainTarget />
-        <ContainCards plataforma={"PS4"} imagenProp="imagen_ps4" />
+        <ContainCards plataforma={"PS4"} />
       </div>
       <FooterHome />
     </div>

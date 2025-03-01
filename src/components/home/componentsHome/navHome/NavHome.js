@@ -16,6 +16,9 @@ const NavHome = () => {
   const handleShop = () => {
     navigate("/tienda");
   };
+  const handleMedia = () => {
+    navigate("/videos");
+  };
   const handleContact = () => {
     navigate("/contacto");
   };
@@ -30,6 +33,9 @@ const NavHome = () => {
       </button>
       <button onClick={handleCard}>
         <span>{">  "}</span> Tarjetas
+      </button>
+      <button onClick={handleMedia}>
+        <span>{">  "}</span> Videos
       </button>
       <button onClick={handleContact}>
         <span>{">  "}</span> Contacto

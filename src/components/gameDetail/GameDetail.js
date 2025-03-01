@@ -7,9 +7,8 @@ import Loader from "../loader/Loader";
 import FooterHome from "../home/componentsHome/footerHome/FooterHome";
 
 const GameDetail = () => {
-  const { nombre } = useParams();
+  const { nombre, platform } = useParams(); // Obtener nombre y plataforma de los parámetros
   const [game, setGame] = useState(null);
-  const [imagenProp, setImagenProp] = useState(null);
 
   const openWhatsapp = () => {
     const whatsappUrl = `https://api.whatsapp.com/send/?phone=543416697243&text&type=phone_number&app_absent=0`;
@@ -20,40 +19,71 @@ const GameDetail = () => {
     async function obtenerDatos() {
       try {
         const response = await axios.get(
-          "https://data-cobragames.vercel.app/data"
+          `https://data-cobragames.vercel.app/data/platform?platform=${platform}`
         );
         const juego = response.data.juegos.find(
-          (juego) => juego.nombre === nombre
+          (juego) => juego.nombre === decodeURIComponent(nombre)
         );
         setGame(juego);
-        const storedImagenProp = localStorage.getItem("imagenProp");
-        if (storedImagenProp) {
-          setImagenProp(storedImagenProp);
-        }
       } catch (error) {
         console.log("Error al obtener los datos:", error);
       }
     }
-    document.title = `Cobra Games | ${nombre}`;
+
+    document.title = `Cobra Games | ${decodeURIComponent(nombre)}`;
     obtenerDatos();
-  }, [nombre]);
+  }, [nombre, platform]);
+
+  const formatearPrecio = (precio) => {
+    const numero = Number(precio);
+    if (isNaN(numero)) {
+      return precio;
+    }
+    return numero
+      .toLocaleString("es-ES", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      })
+      .replace(/\./g, ".");
+  };
 
   if (!game) {
     return <Loader />;
   }
+
   return (
     <>
       <Nav showTitle={true} />
       <div className="gameDetail">
         <div className="infoGame">
           <div className="imgGame">
-            <img src={imagenProp} alt="" />
+            <img src={game.imagen} alt="" />
           </div>
           <div className="dataGame">
             <h1>{game.nombre}</h1>
             <p>{game.descripcion}</p>
-            <button class="cta" onClick={openWhatsapp}>
-              <span class="hover-underline-animation"> Comprar </span>
+            <div className="boxPrice">
+              <h3 className={game.primario === "Null" ? "gameIsNull" : ""}>
+                Primario
+              </h3>
+              <h4 className={game.primario === "Null" ? "gameIsNull" : ""}>
+                $ {formatearPrecio(game.primario)}
+              </h4>
+              <p className={game.primario === "Null" ? "gameIsNull" : ""}>
+                Jugar desde tu cuenta de siempre.
+              </p>
+              <h3 className={game.secundario === "Null" ? "gameIsNull" : ""}>
+                Secundario
+              </h3>
+              <h4 className={game.secundario === "Null" ? "gameIsNull" : ""}>
+                $ {formatearPrecio(game.secundario)}
+              </h4>
+              <p className={game.secundario === "Null" ? "gameIsNull" : ""}>
+                Jugar desde una cuenta nueva.
+              </p>
+            </div>
+            <button className="cta" onClick={openWhatsapp}>
+              <span className="hover-underline-animation"> Comprar </span>
               <svg
                 id="arrow-horizontal"
                 xmlns="http://www.w3.org/2000/svg"

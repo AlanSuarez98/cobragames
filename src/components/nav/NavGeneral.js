@@ -38,6 +38,9 @@ const NavGeneral = () => {
   const handleShop = () => {
     navigate("/tienda");
   };
+  const handleMedia = () => {
+    navigate("/videos");
+  };
   const handleContact = () => {
     navigate("/contacto");
   };
@@ -69,6 +72,9 @@ const NavGeneral = () => {
         </button>
         <button onClick={handleTarget}>
           <span>{">  "}</span> Tarjetas
+        </button>
+        <button onClick={handleMedia}>
+          <span>{">  "}</span> Videos
         </button>
         <button onClick={handleContact}>
           <span>{">  "}</span> Contacto

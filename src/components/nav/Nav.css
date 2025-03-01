@@ -34,7 +34,6 @@
     width: 120px;
     color: white;
     margin: 0 0 0 -15px;
-    -webkit-text-stroke: 1px black;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
     cursor: pointer;
   }
@@ -104,7 +103,7 @@
   }
 }
 
-@media (min-width: 425.1px) and (max-width: 768px) {
+@media (min-width: 426px) and (max-width: 768px) {
   .nav {
     position: fixed;
     top: 0;
@@ -140,7 +139,6 @@
     width: 120px;
     color: white;
     margin: 0 0 0 -15px;
-    -webkit-text-stroke: 1px black;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
     cursor: pointer;
   }
@@ -211,7 +209,7 @@
   }
 }
 
-@media (min-width: 768.1px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .nav {
     position: fixed;
     top: 0;
@@ -247,7 +245,6 @@
     width: 120px;
     color: white;
     margin: 0 0 0 -15px;
-    -webkit-text-stroke: 1px black;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
     cursor: pointer;
   }
@@ -318,7 +315,7 @@
   }
 }
 
-@media (min-width: 1024.1px) and (max-width: 1440px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
   .nav {
     position: fixed;
     top: 0;
@@ -351,7 +348,6 @@
   .image h1 {
     color: white;
     margin: 0 0 0 -15px;
-    -webkit-text-stroke: 1px black;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
     cursor: pointer;
   }
@@ -418,7 +414,7 @@
   }
 }
 
-@media (min-width: 1440.1px) {
+@media (min-width: 1441px) {
   .nav {
     position: fixed;
     top: 0;
@@ -451,7 +447,6 @@
   .image h1 {
     color: white;
     margin: 0 0 0 -15px;
-    -webkit-text-stroke: 1px black;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
     cursor: pointer;
   }

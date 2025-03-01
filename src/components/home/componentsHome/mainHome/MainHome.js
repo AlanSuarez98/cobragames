@@ -17,12 +17,12 @@ const MainHome = () => {
           </p>
         </div>
         <div className="containCards">
-          <CardHome imagenProp={"imagen_ps4"} />
+          <CardHome platform={"PS4"} />
         </div>
       </div>
       <div className="box-ps5">
         <div className="containCards">
-          <CardHome imagenProp={"imagen_ps5"} />
+          <CardHome platform={"PS5"} />
         </div>
         <div className="boxTextHome">
           <h1>Explora el Universo de los Juegos de Alta Definición</h1>

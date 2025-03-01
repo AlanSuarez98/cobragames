@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://data-cobragames.vercel.app/data";
+const BASE_URL = "http://127.0.0.1:5000/data";
 
 export const getAllGames = async () => {
   try {

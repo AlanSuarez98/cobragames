@@ -10,14 +10,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import LoaderGames from "../../../loader/LoaderGames";
 
-export default function CardHome({ imagenProp }) {
+export default function CardHome({ platform }) {
   const [juegos, setJuegos] = useState([]);
 
   useEffect(() => {
     async function obtenerDatos() {
       try {
         const response = await axios.get(
-          "https://data-cobragames.vercel.app/data"
+          `https://data-cobragames.vercel.app/data/platform?platform=${platform}`
         );
         setJuegos(response.data.juegos);
         console.log("Juegos:", response.data.juegos);
@@ -27,7 +27,7 @@ export default function CardHome({ imagenProp }) {
     }
 
     obtenerDatos();
-  }, []);
+  }, [platform]);
   if (!juegos.length) {
     return <LoaderGames />;
   }
@@ -42,7 +42,7 @@ export default function CardHome({ imagenProp }) {
       >
         {juegos.slice(0, 10).map((juego, index) => (
           <SwiperSlide className="sliderCardHome" key={index}>
-            <img src={juego[imagenProp]} alt="" className="imgCardHome" />
+            <img src={juego.imagen} alt="" className="imgCardHome" />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -28,7 +28,7 @@ const Contact = () => {
   }, []);
   return (
     <>
-      <Nav />
+      <Nav showSearchInput={false} showTitle={true} />
       <div className="cajaContact">
         <h1>Canales de Contacto</h1>
         <h2>Estamos para ayudarte con cualquier consulta</h2>

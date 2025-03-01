@@ -18,8 +18,8 @@ const ContainTarget = () => {
         const response = await axios.get(
           "https://data-cobragames.vercel.app/tarjetas"
         );
-        setTarjetas(response.data.tarjetas);
         console.log("Juegos:", response.data.tarjetas);
+        setTarjetas(response.data.tarjetas);
       } catch (error) {
         console.log("Error al obtener los datos:", error);
       }
@@ -27,6 +27,21 @@ const ContainTarget = () => {
 
     obtenerDatos();
   }, []);
+  console.log("Tarjetas:", tarjetas);
+
+  const formatearPrecio = (precio) => {
+    const numero = Number(precio);
+    if (isNaN(numero)) {
+      return precio;
+    }
+    return numero
+      .toLocaleString("es-ES", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      })
+      .replace(/\./g, ".");
+  };
+
   if (!tarjetas.length) {
     return <LoaderGames />;
   }
@@ -54,13 +69,28 @@ const ContainTarget = () => {
       >
         {tarjetas.slice(0, 10).map((tarjeta, index) => (
           <SwiperSlide className="sliderTarget">
-            <Link to={`/tienda/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}>
-              <CardTarget
-                key={index}
-                imagen={tarjeta.imagen}
-                nombre={tarjeta.nombre}
-              />
-            </Link>
+            {tarjeta.stock === "No" ? (
+              <div className="gameOutOfStock">
+                <CardTarget
+                  key={index}
+                  imagen={tarjeta.imagen}
+                  nombre={tarjeta.nombre}
+                  precio={formatearPrecio(tarjeta.precio)}
+                  stock={tarjeta.stock}
+                />
+              </div>
+            ) : (
+              <Link
+                to={`/tienda/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}
+              >
+                <CardTarget
+                  key={index}
+                  imagen={tarjeta.imagen}
+                  nombre={tarjeta.nombre}
+                  precio={formatearPrecio(tarjeta.precio)}
+                />
+              </Link>
+            )}
           </SwiperSlide>
         ))}
       </Swiper>

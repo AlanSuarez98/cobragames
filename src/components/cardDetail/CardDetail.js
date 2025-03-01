@@ -33,6 +33,19 @@ const CardDetail = () => {
     obtenerDatos();
   }, [nombre]);
 
+  const formatearPrecio = (precio) => {
+    const numero = Number(precio);
+    if (isNaN(numero)) {
+      return precio;
+    }
+    return numero
+      .toLocaleString("es-ES", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      })
+      .replace(/\./g, ".");
+  };
+
   if (!tarjeta) {
     return <Loader />;
   }
@@ -47,6 +60,11 @@ const CardDetail = () => {
           <div className="dataCard">
             <h1>{tarjeta.nombre}</h1>
             <p>{tarjeta.descripcion}</p>
+            <div className="boxPrice">
+              <h3>Primario</h3>
+              <h4>$ {formatearPrecio(tarjeta.precio)}</h4>
+              <p>Jugar desde tu cuenta de siempre.</p>
+            </div>
             <button class="cta" onClick={openWhatsapp}>
               <span class="hover-underline-animation"> Comprar </span>
               <svg

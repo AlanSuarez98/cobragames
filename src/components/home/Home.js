@@ -6,6 +6,7 @@ import HeaderHome from "./componentsHome/headerHome/HeaderHome";
 import MainHome from "./componentsHome/mainHome/MainHome";
 import NavHome from "./componentsHome/navHome/NavHome";
 import WhySelect from "./componentsHome/whySelect/WhySelect";
+import Advertising from "./componentsHome/advertising/Advertising";
 
 const Home = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const Home = () => {
     <div className={"home"}>
       <HeaderHome />
       <NavHome />
+      <Advertising />
       <MainHome />
       <WhySelect />
       <AnswerHome />

@@ -112,3 +112,9 @@ svg {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+.price {
+  position: relative;
+}
+.notStock {
+  display: none;
+}
