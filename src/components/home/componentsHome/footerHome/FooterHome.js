@@ -28,7 +28,7 @@ const FooterHome = () => {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "app.apk"); // Nombre del archivo
+      link.setAttribute("download", "CobraGames.apk"); // Nombre del archivo
       document.body.appendChild(link);
 
       // Simular el clic en el enlace para iniciar la descarga
