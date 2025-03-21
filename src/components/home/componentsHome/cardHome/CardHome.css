@@ -1,4 +1,4 @@
-@media (min-width: 320px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .cardMainHome {
     width: 200px !important;
     height: 300px !important;

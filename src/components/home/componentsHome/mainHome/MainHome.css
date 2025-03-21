@@ -48,7 +48,7 @@
     font-weight: lighter;
   }
   .containCards {
-    width: 20%;
+    width: 100%;
     padding: 50px 0;
     display: flex;
     justify-content: center;
@@ -108,7 +108,7 @@
     font-weight: lighter;
   }
   .containCards {
-    width: 20%;
+    width: 100%;
     padding: 50px 0;
     display: flex;
     justify-content: center;
