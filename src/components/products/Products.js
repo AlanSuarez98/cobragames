@@ -1,10 +1,23 @@
-import Advertising from "../home/componentsHome/advertising/Advertising";
-import FooterHome from "../home/componentsHome/footerHome/FooterHome";
-import Nav from "../nav/Nav";
+import React, { useEffect, Suspense, lazy } from "react";
+import { Helmet } from "react-helmet-async";
+import ErrorBoundary from "../../ErrorBoundary"; // Asegúrate de que la ruta sea correcta
+import Loading from "../loader/LoaderGames"; // Componente de carga
 import "./Products.css";
-import ContainCards from "./componentsProducts/containCards/ContainCards";
-import ContainTarget from "./componentsProducts/containTarget/ContainTarget";
-import { useEffect } from "react";
+
+// Componentes cargados dinámicamente
+const Nav = lazy(() => import("../nav/Nav"));
+const Advertising = lazy(() =>
+  import("../home/componentsHome/advertising/Advertising")
+);
+const ContainCards = lazy(() =>
+  import("./componentsProducts/containCards/ContainCards")
+);
+const ContainTarget = lazy(() =>
+  import("./componentsProducts/containTarget/ContainTarget")
+);
+const FooterHome = lazy(() =>
+  import("../home/componentsHome/footerHome/FooterHome")
+);
 
 const Products = () => {
   useEffect(() => {
@@ -13,14 +26,36 @@ const Products = () => {
 
   return (
     <div className="products">
-      <Nav className="nav" showSearchInput={false} showTitle={true} />
-      <Advertising />
-      <div className="containGames">
-        <ContainCards plataforma={"PS5"} />
-        <ContainTarget />
-        <ContainCards plataforma={"PS4"} />
-      </div>
-      <FooterHome />
+      <Helmet>
+        <title>Cobra Games - Tienda</title>
+        <meta
+          name="description"
+          content="Explora nuestra tienda de videojuegos y consolas en Cobra Games."
+        />
+        <meta
+          name="keywords"
+          content="videojuegos, consolas, tienda, gaming, Cobra Games, PS5, PS4"
+        />
+      </Helmet>
+
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <header>
+            <Nav className="nav" showSearchInput={false} showTitle={true} />
+          </header>
+          <nav className="navProducts">
+            <Advertising />
+          </nav>
+          <main className="containGames">
+            <ContainCards plataforma={"PS5"} />
+            <ContainTarget />
+            <ContainCards plataforma={"PS4"} />
+          </main>
+          <footer>
+            <FooterHome />
+          </footer>
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 };

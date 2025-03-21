@@ -1,15 +1,26 @@
-import Nav from "../nav/Nav";
-import "./ProductConsole.css"; // Asegúrate de que este archivo CSS esté correctamente vinculado
-import { useParams } from "react-router";
-import { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, Suspense, lazy } from "react";
+import { Helmet } from "react-helmet-async";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import CardGames from "../products/componentsProducts/cardGames/CardGames";
-import Loader from "../loader/Loader";
-import { Link } from "react-router-dom";
-import FooterHome from "../home/componentsHome/footerHome/FooterHome";
-import NextPagination from "../subComponents/btnPagination/nextPagination/NextPagination";
-import PastPagination from "../subComponents/btnPagination/pastPagination/PastPagination";
+import ErrorBoundary from "../../ErrorBoundary"; // Asegúrate de que la ruta sea correcta
+import Loader from "../loader/Loader"; // Componente de carga
 import icon from "../../assets/iconPlay.png";
+import "./ProductConsole.css";
+
+// Componentes cargados dinámicamente
+const Nav = lazy(() => import("../nav/Nav"));
+const CardGames = lazy(() =>
+  import("../products/componentsProducts/cardGames/CardGames")
+);
+const FooterHome = lazy(() =>
+  import("../home/componentsHome/footerHome/FooterHome")
+);
+const NextPagination = lazy(() =>
+  import("../subComponents/btnPagination/nextPagination/NextPagination")
+);
+const PastPagination = lazy(() =>
+  import("../subComponents/btnPagination/pastPagination/PastPagination")
+);
 
 const ProductConsole = () => {
   const { platform } = useParams();
@@ -127,69 +138,97 @@ const ProductConsole = () => {
 
   return (
     <>
-      <Nav onSearch={handleSearch} showSearchInput={true} showTitle={false} />
-      <div className="product-console">
-        <h1
-          style={{ background: backGround, color: colorCss, boxShadow: shadow }}
-        >
-          {platform}
-          <img src={icon} alt="iconPlay" style={{ filter: invert }} />
-        </h1>
-        <div className="boxGames">
-          {searchTerm && searchResults.length === 0 ? (
-            <p className="messageNotFound">
-              No se encontraron juegos con el nombre "{searchTerm}"
-            </p>
-          ) : (
-            selectedGames.map((juego, index) => (
-              <div
-                key={index}
-                className={juego.stock === "No" ? "gameOutOfStock" : ""}
-              >
-                {juego.stock === "No" ? (
-                  <div className="gameOutOfStock">
-                    <CardGames
-                      imagen={juego.imagen}
-                      nombre={juego.nombre}
-                      precio={formatearPrecio(juego.primario)}
-                      stock={juego.stock}
-                    />
-                  </div>
-                ) : (
-                  <Link
-                    to={`/tienda/juego/${encodeURIComponent(
-                      lowPlatform
-                    )}/${encodeURIComponent(juego.nombre)}`}
+      <Helmet>
+        <title>Cobra Games | Juegos {platform}</title>
+        <meta
+          name="description"
+          content={`Explora nuestra colección de juegos para ${platform} en Cobra Games.`}
+        />
+        <meta
+          name="keywords"
+          content={`${platform}, videojuegos, Cobra Games, juegos, PS4, PS5`}
+        />
+      </Helmet>
+
+      <ErrorBoundary>
+        <Suspense fallback={<Loader />}>
+          <header>
+            <Nav
+              onSearch={handleSearch}
+              showSearchInput={true}
+              showTitle={false}
+            />
+          </header>
+          <main className="product-console">
+            <h1
+              style={{
+                background: backGround,
+                color: colorCss,
+                boxShadow: shadow,
+              }}
+            >
+              {platform}
+              <img src={icon} alt="iconPlay" style={{ filter: invert }} />
+            </h1>
+            <div className="boxGames">
+              {searchTerm && searchResults.length === 0 ? (
+                <p className="messageNotFound">
+                  No se encontraron juegos con el nombre "{searchTerm}"
+                </p>
+              ) : (
+                selectedGames.map((juego, index) => (
+                  <div
+                    key={index}
+                    className={juego.stock === "No" ? "gameOutOfStock" : ""}
                   >
-                    <CardGames
-                      imagen={juego.imagen}
-                      nombre={juego.nombre}
-                      precio={formatearPrecio(juego.primario)}
-                    />
-                  </Link>
+                    {juego.stock === "No" ? (
+                      <div className="gameOutOfStock">
+                        <CardGames
+                          imagen={juego.imagen}
+                          nombre={juego.nombre}
+                          precio={formatearPrecio(juego.primario)}
+                          stock={juego.stock}
+                        />
+                      </div>
+                    ) : (
+                      <Link
+                        to={`/tienda/juego/${encodeURIComponent(
+                          lowPlatform
+                        )}/${encodeURIComponent(juego.nombre)}`}
+                      >
+                        <CardGames
+                          imagen={juego.imagen}
+                          nombre={juego.nombre}
+                          precio={formatearPrecio(juego.primario)}
+                        />
+                      </Link>
+                    )}
+                  </div>
+                ))
+              )}
+            </div>
+            {shouldShowPagination && (
+              <div className="boxPagination">
+                {!isFirstPage && (
+                  <PastPagination
+                    currentPage={currentPage}
+                    setCurrentPage={handlePageChange}
+                  />
+                )}
+                {!isLastPage && (
+                  <NextPagination
+                    setCurrentPage={handlePageChange}
+                    currentPage={currentPage}
+                  />
                 )}
               </div>
-            ))
-          )}
-        </div>
-        {shouldShowPagination && (
-          <div className="boxPagination">
-            {!isFirstPage && (
-              <PastPagination
-                currentPage={currentPage}
-                setCurrentPage={handlePageChange} // Usar handlePageChange
-              />
             )}
-            {!isLastPage && (
-              <NextPagination
-                setCurrentPage={handlePageChange} // Usar handlePageChange
-                currentPage={currentPage}
-              />
-            )}
-          </div>
-        )}
-      </div>
-      <FooterHome />
+          </main>
+          <footer>
+            <FooterHome />
+          </footer>
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 };

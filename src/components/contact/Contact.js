@@ -1,10 +1,19 @@
+import React, { useEffect, Suspense, lazy } from "react";
+import { Helmet } from "react-helmet-async";
+import ErrorBoundary from "../../ErrorBoundary"; // Asegúrate de que la ruta sea correcta
+import Loading from "../loader/LoaderGames"; // Componente de carga
 import { faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import Nav from "../nav/Nav";
-import "./Contact.css";
-import CardContact from "./componentContact/cardContact/CardContact";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
-import FooterHome from "../home/componentsHome/footerHome/FooterHome";
+import "./Contact.css";
+
+// Componentes cargados dinámicamente
+const Nav = lazy(() => import("../nav/Nav"));
+const CardContact = lazy(() =>
+  import("./componentContact/cardContact/CardContact")
+);
+const FooterHome = lazy(() =>
+  import("../home/componentsHome/footerHome/FooterHome")
+);
 
 const Contact = () => {
   const openWhatsapp = () => {
@@ -26,39 +35,58 @@ const Contact = () => {
   useEffect(() => {
     document.title = `Cobra Games | Contacto`;
   }, []);
+
   return (
     <>
-      <Nav showSearchInput={false} showTitle={true} />
-      <div className="cajaContact">
-        <h1>Canales de Contacto</h1>
-        <h2>Estamos para ayudarte con cualquier consulta</h2>
-        <>
-          <div className="boxContact">
-            <CardContact
-              icon={faWhatsapp}
-              nombre={"WhatsApp"}
-              descripcion={"Brindamos atención personalizada"}
-              button={"CHATEAR"}
-              handleButton={openWhatsapp}
-            />
-            <CardContact
-              icon={faEnvelope}
-              nombre={"Email"}
-              descripcion={"Te ayudamos con la instalación"}
-              button={"CONTACTAR"}
-              handleButton={sendEmail}
-            />
-            <CardContact
-              icon={faInstagram}
-              nombre={"Instagram"}
-              descripcion={"Enterate de todas las novedades"}
-              button={"Seguir"}
-              handleButton={openInstagram}
-            />
-          </div>
-        </>
-      </div>
-      <FooterHome />
+      <Helmet>
+        <title>Cobra Games - Contacto</title>
+        <meta
+          name="description"
+          content="Contáctanos a través de WhatsApp, Email o Instagram. Estamos para ayudarte."
+        />
+        <meta
+          name="keywords"
+          content="contacto, Cobra Games, WhatsApp, Email, Instagram, videojuegos, consolas"
+        />
+      </Helmet>
+
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <header>
+            <Nav showSearchInput={false} showTitle={true} />
+          </header>
+          <main className="cajaContact">
+            <h1>Canales de Contacto</h1>
+            <h2>Estamos para ayudarte con cualquier consulta</h2>
+            <div className="boxContact">
+              <CardContact
+                icon={faWhatsapp}
+                nombre={"WhatsApp"}
+                descripcion={"Brindamos atención personalizada"}
+                button={"CHATEAR"}
+                handleButton={openWhatsapp}
+              />
+              <CardContact
+                icon={faEnvelope}
+                nombre={"Email"}
+                descripcion={"Te ayudamos con la instalación"}
+                button={"CONTACTAR"}
+                handleButton={sendEmail}
+              />
+              <CardContact
+                icon={faInstagram}
+                nombre={"Instagram"}
+                descripcion={"Enterate de todas las novedades"}
+                button={"Seguir"}
+                handleButton={openInstagram}
+              />
+            </div>
+          </main>
+          <footer>
+            <FooterHome />
+          </footer>
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 };

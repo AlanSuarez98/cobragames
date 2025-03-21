@@ -1,3 +1,12 @@
+header,
+main,
+nav,
+section,
+footer {
+  width: 100%;
+  overflow: hidden;
+}
+
 @media (max-width: 430px) {
   .product-console {
     background-color: rgb(26, 26, 26);

@@ -1,7 +1,16 @@
+header,
+main,
+nav,
+section,
+footer {
+  width: 100%;
+  overflow: hidden;
+}
+
 @media (max-width: 425px) {
   .cajaContact {
     position: relative;
-    padding: 175px 0 0 0;
+    padding: 200px 0 0px 0;
     background-color: rgb(26, 26, 26);
     width: 100%;
     min-height: 75vh;
@@ -61,7 +70,7 @@
 @media (min-width: 425.1px) and (max-width: 768px) {
   .cajaContact {
     position: relative;
-    padding: 175px 0 0 0;
+    padding: 200px 0 0px 0;
     background-color: rgb(26, 26, 26);
     width: 100%;
     min-height: 75vh;
@@ -121,6 +130,7 @@
 @media (min-width: 768.1px) and (max-width: 1024px) {
   .cajaContact {
     position: relative;
+    padding: 75px 0 0px 0;
     background-color: rgb(26, 26, 26);
     width: 100%;
     min-height: 75vh;
@@ -178,6 +188,7 @@
 @media (min-width: 1024.1px) and (max-width: 1440px) {
   .cajaContact {
     position: relative;
+    padding: 75px 0 0px 0;
     background-color: rgb(26, 26, 26);
     width: 100%;
     min-height: 75vh;
@@ -235,6 +246,7 @@
 @media (min-width: 1440.1px) {
   .cajaContact {
     position: relative;
+    padding: 75px 0 0px 0;
     background-color: rgb(26, 26, 26);
     width: 100%;
     min-height: 75vh;

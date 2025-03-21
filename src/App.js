@@ -1,80 +1,24 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React, { Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom"; // Eliminamos la importación de Routes
+import { HelmetProvider } from "react-helmet-async";
+import ErrorBoundary from "./ErrorBoundary";
+import Loading from "./components/loader/Loader";
+import appRoutes from "./Routes"; // Importamos las rutas
+
 import "./App.css";
-import Home from "./components/home/Home";
-import Products from "./components/products/Products";
-/*import LoginSignUp from "./components/loginsignup/LoginSignUp";
-import Dashboard from "./components/dashboard/Dashboard";*/
-import ProductConsole from "./components/productConsole/ProductConsole";
-import ProductTarget from "./components/productTarget/ProductTarget";
-import GameDetail from "./components/gameDetail/GameDetail";
-/*import ProtectedLogin from "./ProtectedLogin";
-import ProtectedDashboard from "./ProtectedDashboard";*/
-import CardDetail from "./components/cardDetail/CardDetail";
-import Contact from "./components/contact/Contact";
-import NotFound from "./components/notFound/NotFound";
-import Media from "./components/media/Media";
-//import InMaintenance from "./components/inMaintenance/InMaintenance";
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    /*{
-      path: "/",
-      element: <InMaintenance />,
-    },*/
-    {
-      path: "*",
-      element: <NotFound />,
-    },
-    {
-      path: "/tienda",
-      element: <Products />,
-    },
-    /*{
-      path: "/login",
-      element: (
-        <ProtectedLogin>
-          <LoginSignUp />
-        </ProtectedLogin>
-      ),
-    },
-    {
-      path: "/dashboard",
-      element: (
-        <ProtectedDashboard>
-          <Dashboard />
-        </ProtectedDashboard>
-      ),
-    },*/
-    {
-      path: "/tienda/consola/:platform",
-      element: <ProductConsole />,
-    },
-    {
-      path: "/tienda/tarjetas",
-      element: <ProductTarget />,
-    },
-    {
-      path: "/tienda/juego/:platform/:nombre",
-      element: <GameDetail />,
-    },
-    {
-      path: "/tienda/tarjeta/:nombre",
-      element: <CardDetail />,
-    },
-    {
-      path: "/videos",
-      element: <Media />,
-    },
-    {
-      path: "/contacto",
-      element: <Contact />,
-    },
-  ]);
-  return <RouterProvider router={router} />;
+  const router = createBrowserRouter(appRoutes); // Usamos las rutas importadas
+
+  return (
+    <HelmetProvider>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <RouterProvider router={router} />
+        </Suspense>
+      </ErrorBoundary>
+    </HelmetProvider>
+  );
 }
 
 export default App;
