@@ -90,7 +90,7 @@ const ProductTarget = () => {
   return (
     <>
       <Nav showTitle={false} onSearch={handleSearch} showSearchInput={true} />
-      <div className="product-console">
+      <div className="product-target">
         <h1
           style={{
             backgroundColor: "goldenrod",
@@ -104,7 +104,7 @@ const ProductTarget = () => {
             style={{ height: heightCard, filter: invertCard }}
           />
         </h1>
-        <div className="boxGames">
+        <div className="boxTarget">
           {searchTerm && searchResults.length === 0 ? (
             <p className="messageNotFound">
               No se encontraron tarjetas con el nombre "{searchTerm}"

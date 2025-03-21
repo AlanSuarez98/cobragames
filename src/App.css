@@ -24,13 +24,7 @@
 ::-ms-input-placeholder {
   color: white;
 }
-header,
-main,
-nav,
-section,
-footer {
-  width: 100%;
-}
+
 a {
   color: white;
   text-decoration: none;
