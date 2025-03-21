@@ -1,7 +1,7 @@
 import Nav from "../nav/Nav";
 import "./ProductConsole.css"; // Asegúrate de que este archivo CSS esté correctamente vinculado
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import CardGames from "../products/componentsProducts/cardGames/CardGames";
 import Loader from "../loader/Loader";
@@ -32,6 +32,13 @@ const ProductConsole = () => {
     }
 
     obtenerDatos();
+  }, [platform]);
+
+  useEffect(() => {
+    setJuegos([]); // Reiniciar la lista de juegos
+    setCurrentPage(1); // Reiniciar la página actual
+    setSearchResults([]); // Reiniciar los resultados de búsqueda
+    setSearchTerm(""); // Reiniciar el término de búsqueda
   }, [platform]);
 
   const formatearPrecio = (precio) => {
@@ -68,6 +75,38 @@ const ProductConsole = () => {
     window.scrollTo({ top: 0, behavior: "smooth" }); // Desplazar al inicio de la página
   };
 
+  const backGround = useMemo(() => {
+    return platform.toLowerCase() === "ps4"
+      ? "linear-gradient(135deg, #003087, #0050a8)"
+      : platform.toLowerCase() === "ps5"
+      ? "white"
+      : "defaultColor";
+  }, [platform]);
+
+  const colorCss = useMemo(() => {
+    return platform.toLowerCase() === "ps4"
+      ? "white"
+      : platform.toLowerCase() === "ps5"
+      ? "black"
+      : "defaultColor";
+  }, [platform]);
+
+  const invert = useMemo(() => {
+    return platform.toLowerCase() === "ps4"
+      ? "invert(1)"
+      : platform.toLowerCase() === "ps5"
+      ? "invert(0)"
+      : "defaultColor";
+  }, [platform]);
+
+  const shadow = useMemo(() => {
+    return platform.toLowerCase() === "ps4"
+      ? "0px 0px 6px white"
+      : platform.toLowerCase() === "ps5"
+      ? "0px 0px 10px #0050a8"
+      : "none";
+  }, [platform]);
+
   if (!juegos.length) {
     return <Loader />;
   }
@@ -82,34 +121,6 @@ const ProductConsole = () => {
   const totalPages = Math.ceil(juegosToShow.length / gamesPerPage);
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
-
-  const backGround =
-    platform.toLowerCase() === "ps4"
-      ? "linear-gradient(135deg, #003087, #0050a8)"
-      : platform.toLowerCase() === "ps5"
-      ? "white"
-      : "defaultColor";
-
-  const colorCss =
-    platform.toLowerCase() === "ps4"
-      ? "white"
-      : platform.toLowerCase() === "ps5"
-      ? "black"
-      : "defaultColor";
-
-  const invert =
-    platform.toLowerCase() === "ps4"
-      ? "invert(1)"
-      : platform.toLowerCase() === "ps5"
-      ? "invert(0)"
-      : "defaultColor";
-
-  const shadow =
-    platform.toLowerCase() === "ps4"
-      ? "0px 0px 6px white"
-      : platform.toLowerCase() === "ps5"
-      ? "0px 0px 10px #0050a8"
-      : "none";
 
   const shouldShowPagination = juegosToShow.length > gamesPerPage;
   const lowPlatform = platform.toLowerCase();
