@@ -121,7 +121,7 @@ const ProductConsole = () => {
         <h1
           style={{ background: backGround, color: colorCss, boxShadow: shadow }}
         >
-          Juegos {platform}
+          {platform}
           <img src={icon} alt="iconPlay" style={{ filter: invert }} />
         </h1>
         <div className="boxGames">
