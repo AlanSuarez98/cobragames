@@ -31,3 +31,7 @@ section,
 footer {
   width: 100%;
 }
+a {
+  color: white;
+  text-decoration: none;
+}
