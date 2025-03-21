@@ -43,7 +43,7 @@
   }
   .boxTextHome p {
     text-align: center;
-    width: 65%;
+    width: 80%;
     font-size: 1.1rem;
     font-weight: lighter;
   }
@@ -60,7 +60,7 @@
   .mainHome {
     width: 100%;
     overflow: hidden;
-    min-height: 60vh;
+    min-height: 80vh;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -150,7 +150,7 @@
     padding: 15px 0;
   }
   .boxTextHome {
-    width: 75%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -169,7 +169,7 @@
     font-weight: lighter;
   }
   .containCards {
-    width: 25%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -202,7 +202,7 @@
     justify-content: center;
   }
   .boxTextHome {
-    width: 75%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -221,7 +221,7 @@
     font-weight: lighter;
   }
   .containCards {
-    width: 25%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -252,7 +252,7 @@
     justify-content: center;
   }
   .boxTextHome {
-    width: 75%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -271,7 +271,7 @@
     font-weight: lighter;
   }
   .containCards {
-    width: 25%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
