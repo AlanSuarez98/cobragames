@@ -67,7 +67,7 @@ footer {
   }
 }
 
-@media (min-width: 430.1px) and (max-width: 768px) {
+@media (min-width: 431px) and (max-width: 768px) {
   .product-console {
     background-color: rgb(26, 26, 26);
     width: 100%;
@@ -125,7 +125,7 @@ footer {
   }
 }
 
-@media (min-width: 768.1px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .product-console {
     background-color: rgb(26, 26, 26);
     width: 100%;

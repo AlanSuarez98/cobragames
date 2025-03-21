@@ -44,7 +44,7 @@
   }
 }
 
-@media (min-width: 425.1px) and (max-width: 768px) {
+@media (min-width: 426px) and (max-width: 768px) {
   .answerHome {
     width: 100%;
     height: fit-content;
@@ -90,7 +90,7 @@
   }
 }
 
-@media (min-width: 768.1px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .answerHome {
     width: 100%;
     height: fit-content;
@@ -135,7 +135,7 @@
   }
 }
 
-@media (min-width: 1024.1px) and (max-width: 1440px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
   .answerHome {
     width: 100%;
     height: fit-content;
@@ -179,7 +179,7 @@
     transition: 0.2s ease-in-out all;
   }
 }
-@media (min-width: 1440.1px) {
+@media (min-width: 1441px) {
   .answerHome {
     width: 100%;
     height: fit-content;

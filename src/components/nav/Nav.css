@@ -1,8 +1,6 @@
 @media (max-width: 425px) {
   .nav {
-    position: fixed;
-    top: 0;
-    order: 0;
+    position: relative;
     z-index: 9999;
     width: 100%;
     background-color: #d4a108;
@@ -106,9 +104,7 @@
 
 @media (min-width: 426px) and (max-width: 768px) {
   .nav {
-    position: fixed;
-    top: 0;
-    order: 0;
+    position: relative;
     z-index: 9999;
     width: 100%;
     background-color: #d4a108;
@@ -213,9 +209,7 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .nav {
-    position: fixed;
-    top: 0;
-    order: 0;
+    position: relative;
     z-index: 9999;
     width: 100%;
     background-color: #d4a108;
@@ -320,9 +314,7 @@
 
 @media (min-width: 1025px) and (max-width: 1440px) {
   .nav {
-    position: fixed;
-    top: 0;
-    order: 0;
+    position: relative;
     z-index: 9999;
     width: 100%;
     background-color: #d4a108;
@@ -420,9 +412,7 @@
 
 @media (min-width: 1441px) {
   .nav {
-    position: fixed;
-    top: 0;
-    order: 0;
+    position: relative;
     z-index: 9999;
     width: 100%;
     background-color: #d4a108;

@@ -114,7 +114,7 @@
   }
 }
 
-@media (min-width: 425.1px) and (max-width: 768px) {
+@media (min-width: 426px) and (max-width: 768px) {
   .cardDetail {
     background-color: rgb(26, 26, 26);
     width: 100%;
@@ -230,7 +230,7 @@
   }
 }
 
-@media (min-width: 768.1px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .cardDetail {
     background-color: rgb(26, 26, 26);
     width: 100%;
@@ -341,7 +341,7 @@
   }
 }
 
-@media (min-width: 1024.1px) and (max-width: 1440px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
   .cardDetail {
     background-color: rgb(26, 26, 26);
     width: 100%;
@@ -452,8 +452,7 @@
   }
 }
 
-
-@media (min-width: 1440.1px) {
+@media (min-width: 1441px) {
   .cardDetail {
     background-color: rgb(26, 26, 26);
     width: 100%;

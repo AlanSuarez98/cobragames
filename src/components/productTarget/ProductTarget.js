@@ -1,14 +1,26 @@
-import axios from "axios";
-import Nav from "../nav/Nav";
-import "./ProductTarget.css";
-import { useEffect, useState } from "react";
-import Loader from "../loader/Loader";
-import CardTarget from "../products/componentsProducts/cardTarget/CardTarget";
+import React, { useEffect, useState, Suspense, lazy } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import FooterHome from "../home/componentsHome/footerHome/FooterHome";
-import PastPagination from "../subComponents/btnPagination/pastPagination/PastPagination";
-import NextPagination from "../subComponents/btnPagination/nextPagination/NextPagination";
+import axios from "axios";
+import ErrorBoundary from "../../ErrorBoundary"; // Asegúrate de que la ruta sea correcta
+import Loader from "../loader/Loader"; // Componente de carga
 import icon from "../../assets/iconCard.png";
+import "./ProductTarget.css";
+
+// Componentes cargados dinámicamente
+const Nav = lazy(() => import("../nav/Nav"));
+const CardTarget = lazy(() =>
+  import("../products/componentsProducts/cardTarget/CardTarget")
+);
+const FooterHome = lazy(() =>
+  import("../home/componentsHome/footerHome/FooterHome")
+);
+const PastPagination = lazy(() =>
+  import("../subComponents/btnPagination/pastPagination/PastPagination")
+);
+const NextPagination = lazy(() =>
+  import("../subComponents/btnPagination/nextPagination/NextPagination")
+);
 
 const ProductTarget = () => {
   const [tarjetas, setTarjetas] = useState([]);
@@ -63,7 +75,6 @@ const ProductTarget = () => {
     }
   };
 
-  // Función para manejar el cambio de página y desplazarse al inicio
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage); // Cambiar la página
     window.scrollTo({ top: 0, behavior: "smooth" }); // Desplazar al inicio de la página
@@ -84,81 +95,106 @@ const ProductTarget = () => {
   const heightCard = window.innerWidth < 450 ? "150%" : "100px";
   const invertCard = "invert(1)";
 
-  // Condición para mostrar los botones de paginación
   const shouldShowPagination = searchResults.length > gamesPerPage;
 
   return (
     <>
-      <Nav showTitle={false} onSearch={handleSearch} showSearchInput={true} />
-      <div className="product-console">
-        <h1
-          style={{
-            backgroundColor: "goldenrod",
-            boxShadow: "0px 0px 6px white",
-          }}
-        >
-          Tarjetas
-          <img
-            src={icon}
-            alt="Icon Card"
-            style={{ height: heightCard, filter: invertCard }}
-          />
-        </h1>
-        <div className="boxGames">
-          {searchTerm && searchResults.length === 0 ? (
-            <p className="messageNotFound">
-              No se encontraron tarjetas con el nombre "{searchTerm}"
-            </p>
-          ) : (
-            tarjetasToShow.map((tarjeta, index) => (
-              <div
-                key={index}
-                className={tarjeta.stock === "No" ? "gameOutOfStock" : ""}
-              >
-                {tarjeta.stock === "No" ? (
-                  <div className="gameOutOfStock">
-                    <CardTarget
-                      imagen={tarjeta.imagen}
-                      nombre={tarjeta.nombre}
-                      precio={formatearPrecio(tarjeta.precio)}
-                      stock={tarjeta.stock}
-                    />
-                  </div>
-                ) : (
-                  <Link
-                    to={`/tienda/tarjeta/${encodeURIComponent(tarjeta.nombre)}`}
+      <Helmet>
+        <title>Cobra Games | Tarjetas</title>
+        <meta
+          name="description"
+          content="Explora nuestra colección de tarjetas de regalo en Cobra Games."
+        />
+        <meta
+          name="keywords"
+          content="tarjetas, Cobra Games, videojuegos, consolas, PS4, PS5"
+        />
+      </Helmet>
+
+      <ErrorBoundary>
+        <Suspense fallback={<Loader />}>
+          <header>
+            <Nav
+              showTitle={false}
+              onSearch={handleSearch}
+              showSearchInput={true}
+            />
+          </header>
+          <main className="product-console">
+            <h1
+              style={{
+                backgroundColor: "goldenrod",
+                boxShadow: "0px 0px 6px white",
+              }}
+            >
+              Tarjetas
+              <img
+                src={icon}
+                alt="Icon Card"
+                style={{ height: heightCard, filter: invertCard }}
+              />
+            </h1>
+            <div className="boxGames">
+              {searchTerm && searchResults.length === 0 ? (
+                <p className="messageNotFound">
+                  No se encontraron tarjetas con el nombre "{searchTerm}"
+                </p>
+              ) : (
+                tarjetasToShow.map((tarjeta, index) => (
+                  <div
+                    key={index}
+                    className={tarjeta.stock === "No" ? "gameOutOfStock" : ""}
                   >
-                    <CardTarget
-                      imagen={tarjeta.imagen}
-                      nombre={tarjeta.nombre}
-                      precio={formatearPrecio(tarjeta.precio)}
-                    />
-                  </Link>
-                )}
-              </div>
-            ))
-          )}
-        </div>
-        {!searchTerm || searchResults.length > 0
-          ? shouldShowPagination && (
-              <div className="boxPagination">
-                {!isFirstPage && (
-                  <PastPagination
-                    currentPage={currentPage}
-                    setCurrentPage={handlePageChange} // Usar handlePageChange
-                  />
-                )}
-                {!isLastPage && (
-                  <NextPagination
-                    setCurrentPage={handlePageChange} // Usar handlePageChange
-                    currentPage={currentPage}
-                  />
-                )}
-              </div>
-            )
-          : null}
-      </div>
-      <FooterHome />
+                    {tarjeta.stock === "No" ? (
+                      <div className="gameOutOfStock">
+                        <CardTarget
+                          imagen={tarjeta.imagen}
+                          nombre={tarjeta.nombre}
+                          precio={formatearPrecio(tarjeta.precio)}
+                          stock={tarjeta.stock}
+                        />
+                      </div>
+                    ) : (
+                      <Link
+                        to={`/tienda/tarjeta/${encodeURIComponent(
+                          tarjeta.nombre
+                        )}`}
+                      >
+                        <CardTarget
+                          imagen={tarjeta.imagen}
+                          nombre={tarjeta.nombre}
+                          precio={formatearPrecio(tarjeta.precio)}
+                        />
+                      </Link>
+                    )}
+                  </div>
+                ))
+              )}
+            </div>
+            {!searchTerm || searchResults.length > 0
+              ? shouldShowPagination && (
+                  <div className="boxPagination">
+                    {!isFirstPage && (
+                      <PastPagination
+                        currentPage={currentPage}
+                        setCurrentPage={handlePageChange}
+                      />
+                    )}
+                    {!isLastPage && (
+                      <NextPagination
+                        setCurrentPage={handlePageChange}
+                        currentPage={currentPage}
+                      />
+                    )}
+                  </div>
+                )
+              : null}
+          </main>
+          <footer>
+            <FooterHome />
+          </footer>
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 };

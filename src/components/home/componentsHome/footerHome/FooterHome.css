@@ -136,7 +136,7 @@
   }
 }
 
-@media (min-width: 768.1px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .footerHome {
     width: 100%;
     height: fit-content;
@@ -268,7 +268,7 @@
   }
 }
 
-@media (min-width: 1440.1px) {
+@media (min-width: 1441px) {
   .footerHome {
     width: 100%;
     height: fit-content;

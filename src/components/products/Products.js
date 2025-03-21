@@ -43,7 +43,7 @@ const Products = () => {
           <header>
             <Nav className="nav" showSearchInput={false} showTitle={true} />
           </header>
-          <nav className="navProducts">
+          <nav>
             <Advertising />
           </nav>
           <main className="containGames">
