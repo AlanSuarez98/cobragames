@@ -30,11 +30,11 @@ const Products = () => {
         <title>Cobra Games - Tienda</title>
         <meta
           name="description"
-          content="Explora nuestra tienda de videojuegos y consolas en Cobra Games."
+          content="Explora nuestra tienda de videojuegos digitales en Cobra Games."
         />
         <meta
           name="keywords"
-          content="videojuegos, consolas, tienda, gaming, Cobra Games, PS5, PS4"
+          content="videojuegos, videojuegos digitales, tienda, gaming, Cobra Games, PS5, PS4"
         />
       </Helmet>
 

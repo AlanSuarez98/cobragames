@@ -26,11 +26,11 @@ const Home = () => {
         <title>Cobra Games - Inicio</title>
         <meta
           name="description"
-          content="Bienvenido a Cobra Games, tu tienda de videojuegos y consolas."
+          content="Bienvenido a Cobra Games, tu tienda de videojuegos digitales."
         />
         <meta
           name="keywords"
-          content="videojuegos, consolas, tienda, gaming, Cobra Games"
+          content="videojuegos, videojuegos digitales, tienda, gaming, Cobra Games"
         />
       </Helmet>
 

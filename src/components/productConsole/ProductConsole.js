@@ -146,7 +146,7 @@ const ProductConsole = () => {
         />
         <meta
           name="keywords"
-          content={`${platform}, videojuegos, Cobra Games, juegos, PS4, PS5`}
+          content={`${platform}, videojuegos, videojuegos digitales, Cobra Games, juegos, PS4, PS5`}
         />
       </Helmet>
 

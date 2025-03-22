@@ -46,7 +46,7 @@ const Contact = () => {
         />
         <meta
           name="keywords"
-          content="contacto, Cobra Games, WhatsApp, Email, Instagram, videojuegos, consolas"
+          content="contacto, Cobra Games, WhatsApp, Email, Instagram, videojuegos, vidoejuegos digitales"
         />
       </Helmet>
 
